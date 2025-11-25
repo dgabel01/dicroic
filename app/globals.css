@@ -116,6 +116,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground font-montserrat;
   }
@@ -127,6 +128,7 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translateY(-8px) scale(0.95);
@@ -136,4 +138,3 @@
 .dropdown-content[data-state="closed"] {
   animation: dropdown-close 0.2s ease-out forwards;
 }
-

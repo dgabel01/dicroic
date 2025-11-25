@@ -14,7 +14,7 @@ export default function Footer() {
         <footer className="bg-gray-900 text-gray-300 py-12 mt-24">
             <div className="container mx-auto px-6 md:px-12">
                 {/* Main Footer Row */}
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-16">
 
                     {/* LEFT: Logo + Brand */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">

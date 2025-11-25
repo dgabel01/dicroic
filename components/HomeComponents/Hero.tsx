@@ -38,6 +38,8 @@ export default function Hero() {
                 {heroImages.map((image, index) => (
                     <CarouselItem key={index} className="basis-full pl-0">
                         <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-112 xl:h-128">
+                            
+                            {/*Povisit visinu slike na mobile */}
                             <Image
                                 src={image.src}
                                 alt={image.alt}

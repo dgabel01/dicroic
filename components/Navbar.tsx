@@ -13,7 +13,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50 text-2xl">
+        <div className="navbar bg-background shadow-sm sticky top-0 z-50 text-2xl">
             {/* Logo */}
             <div className="navbar-start">
                 <Link href="/" className="flex items-center">
@@ -36,8 +36,8 @@ export default function Navbar() {
                             <Link
                                 href={href}
                                 className={`px-5 py-3 rounded-xl transition-all duration-200 font-semibold ${pathname === href
-                                        ? 'bg-primary text-white shadow-lg'
-                                        : 'hover:bg-base-200'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'hover:bg-base-200'
                                     }`}
                             >
                                 {label}
@@ -103,8 +103,8 @@ export default function Navbar() {
                                 <Link
                                     href={href}
                                     className={`text-lg font-medium py-4 px-6 rounded-lg transition-all duration-200 ${pathname === href
-                                            ? 'bg-primary text-white shadow-md'
-                                            : 'hover:bg-primary/10 hover:text-primary active:bg-primary/20'
+                                        ? 'bg-primary text-white shadow-md'
+                                        : 'hover:bg-primary/10 hover:text-primary active:bg-primary/20'
                                         }`}
                                 >
                                     {label}
