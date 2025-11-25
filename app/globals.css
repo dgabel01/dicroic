@@ -117,8 +117,19 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Prevent iOS / mobile bounce/snap when reaching scroll edges and
+     provide smoother scrolling behaviour on touch devices. */
+  html,
+  body,
+  #__next {
+    height: 100%;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     @apply bg-background text-foreground font-montserrat;
+    touch-action: pan-y;
   }
 }
 
@@ -137,4 +148,8 @@
 
 .dropdown-content[data-state="closed"] {
   animation: dropdown-close 0.2s ease-out forwards;
+}
+
+body {
+  scroll-behavior: smooth;
 }

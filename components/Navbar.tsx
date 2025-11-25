@@ -94,7 +94,7 @@ export default function Navbar() {
                     {/* Animated Dropdown Menu */}
                     <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-4 shadow-2xl bg-base-100/95 backdrop-blur-lg 
+                        className="dropdown-content menu p-4 shadow-2xl bg-white backdrop-blur-lg 
                        border border-base-300 rounded-xl w-80 mt-3 z-50 gap-2
                        transition-all duration-300 ease-out"
                     >
