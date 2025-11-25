@@ -133,6 +133,15 @@
   }
 }
 
+/* Ensure pages use the dynamic viewport height to avoid layout shifts
+   when Safari's UI (address/toolbars) shows/hides on scroll. Apply to
+   the top-level main element so it affects pages like the home hero. */
+body > main {
+  min-height: 100dvh;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Smooth dropdown close animation */
 @keyframes dropdown-close {
   from {
