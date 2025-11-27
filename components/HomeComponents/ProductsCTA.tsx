@@ -44,7 +44,7 @@ export default function ProductsCTA() {
             <div className="container mx-auto px-6 md:px-12">
                 {/* Header with Button */}
                 <div className="flex flex-col items-center justify-center gap-4 mb-12 text-center" data-aos="flip-up">
-                    <h2 className="text-2xl font-extrabold ">
+                    <h2 className="text-3xl font-extrabold ">
                         Provjerite dio naše ponude
                     </h2>
                     <Link
@@ -59,14 +59,14 @@ export default function ProductsCTA() {
                 {/* Products Grid */}
                 <div className="grid gap-8 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" data-aos="flip-up" data-aos-delay="200">
                     {products.map((product) => (
-                        <Card key={product.id} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300" data-aos="flip-left" data-aos-delay={product.id * 150}>
+                        <Card key={product.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-xl" data-aos="flip-left" data-aos-delay={product.id * 150}>
                             {/* Image Container */}
-                            <div className="relative w-full h-24 overflow-hidden">
+                            <div className="relative w-full h-24 overflow-hidden ">
                                 <Image
                                     src={product.image}
                                     alt={product.title}
                                     fill
-                                    className="object-cover"
+                                    className="object-contain"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                 />
                             </div>

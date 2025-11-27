@@ -1,5 +1,7 @@
 import Image from "next/image"
 
+//TODO:upscale + logo links
+
 const LogoSlider = () => {
     const logos = [
         { src: "/images/auvitran_logo.png", alt: "Auvitran" },
@@ -28,8 +30,8 @@ const LogoSlider = () => {
     const duplicatedLogos = [...logos, ...logos]
 
     return (
-        <section className="py-12 mt-12 bg-background text-foreground overflow-hidden border rounded-xl shadow-md">
-            <div className="container mx-auto px-6 md:px-12">
+        <section className="py-12 mt-24 text-foreground bg-transparent overflow-hidden border rounded-xl shadow-md">
+            <div className="container mx-auto ">
                 {/* Infinite Slider Container */}
                 <div className="relative overflow-hidden">
                     <style>{`
@@ -44,8 +46,8 @@ const LogoSlider = () => {
                         
                         .logo-slider-track {
                             display: flex;
-                            animation: scroll-left 30s linear infinite;
-                            gap: 1rem;
+                            animation: scroll-left 10s linear infinite;
+                            gap: 50px;
                         }
                         
                         .logo-slider-track:hover {
@@ -64,7 +66,7 @@ const LogoSlider = () => {
                                     alt={logo.alt}
                                     width={120}
                                     height={120}
-                                    className="h-full w-auto object-contain"
+                                    className="h-full w-auto object-contain rounded-lg"
                                 />
                             </div>
                         ))}
