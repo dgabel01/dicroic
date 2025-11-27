@@ -9,16 +9,14 @@ import "aos/dist/aos.css"
 export default function AboutCTA() {
     useEffect(() => {
         AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100,
+            
         })
     }, [])
     return (
         <section className="py-4 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up">
-                    <h2 className="text-3xl font-extrabold mb-8 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">
+                    <h2 className="text-2xl md:text-3xl  font-extrabold mb-8 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">
                         DICROIC d.o.o.
                     </h2>
                     <p className="text-2xl font-extrabold  leading-relaxed italic">

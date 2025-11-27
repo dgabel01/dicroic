@@ -56,9 +56,7 @@ const projects = [
 export default function ProjectsSection() {
     useEffect(() => {
         AOS.init({
-            duration: 800,
-            easing: "ease-out-quart",
-            once: true,
+           
         });
     }, []);
 
@@ -71,7 +69,7 @@ export default function ProjectsSection() {
                     className="flex flex-col items-center justify-between mb-16 gap-4"
                     data-aos="fade-up"
                 >
-                    <h2 className="text-3xl font-bold text-center md:text-left">
+                    <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
                         Naši Projekti
                     </h2>
 

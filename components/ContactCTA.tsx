@@ -1,11 +1,9 @@
-"use client";
-import React from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const ContactCTA = () => {
     return (
-        <section className="py-20 bg-linear-to-r from-cyan-800  to-cyan-500">
+        <section className="py-20 bg-linear-to-r from-cyan-800  to-cyan-500" data-aos="fade-up">
             <div className="max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
                     Imate pitanje ili želite suradnju?

@@ -44,7 +44,7 @@ export default function ProductsCTA() {
             <div className="container mx-auto px-6 md:px-12">
                 {/* Header with Button */}
                 <div className="flex flex-col items-center justify-center gap-4 mb-12 text-center" data-aos="flip-up">
-                    <h2 className="text-3xl font-extrabold ">
+                    <h2 className="text-2xl md:text-3xl  font-extrabold ">
                         Provjerite dio naše ponude
                     </h2>
                     <Link
