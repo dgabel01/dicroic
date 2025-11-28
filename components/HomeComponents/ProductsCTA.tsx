@@ -1,9 +1,20 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRightIcon } from "@heroicons/react/24/outline"
 
 export default function ProductsCTA() {
+     useEffect(() => {
+            AOS.init({ 
+                duration: 1000
+    
+            })
+        }, [])
+
     const products = [
         {
             id: 1,
@@ -43,7 +54,7 @@ export default function ProductsCTA() {
         <section className="mt-36 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">
                 {/* Header with Button */}
-                <div className="flex flex-col items-center justify-center gap-4 mb-12 text-center" data-aos="flip-up">
+                <div className="flex flex-col items-center justify-center gap-4 mb-12 text-center" data-aos="flip-up" data-aos-duration="1000">
                     <h2 className="text-2xl md:text-3xl  font-extrabold ">
                         Provjerite dio naše ponude
                     </h2>
@@ -57,9 +68,9 @@ export default function ProductsCTA() {
                 </div>
 
                 {/* Products Grid */}
-                <div className="grid gap-8 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" data-aos="flip-up" data-aos-delay="200">
+                <div className="grid gap-8 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" data-aos="flip-up" data-aos-delay="200" data-aos-duration="1000">
                     {products.map((product) => (
-                        <Card key={product.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-xl" data-aos="flip-left" data-aos-delay={product.id * 150}>
+                        <Card key={product.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-xl" data-aos="flip-left" data-aos-delay={product.id * 50}>
                             {/* Image Container */}
                             <div className="relative w-full h-24 overflow-hidden ">
                                 <Image

@@ -43,7 +43,7 @@ const services = [
 
 const AboutHero = () => {
     useEffect(() => {
-        AOS.init({});
+        AOS.init({ duration: 1000 });
     }, []);
 
     return (
@@ -67,7 +67,7 @@ const AboutHero = () => {
                     {/* TEXT COLUMN */}
                     <div
                         data-aos="fade-up"
-                        data-aos-duration="2000"
+                        data-aos-duration="1000"
                         className="flex-1 text-gray-800 space-y-4 leading-relaxed text-base md:text-lg"
                     >
                         <h1 className="text-2xl md:text-3xl font-extrabold mb-4 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">
@@ -117,7 +117,7 @@ const AboutHero = () => {
                     </div>
 
                     {/* ISO IMAGE */}
-                    <div data-aos="fade-left" data-aos-duration="2000" className="shrink-0 w-48 md:w-64">
+                    <div data-aos="fade-left" data-aos-duration="1000" className="shrink-0 w-48 md:w-64">
                         <Image
                             src={isoImage}
                             alt="ISO Certification"
@@ -132,7 +132,7 @@ const AboutHero = () => {
                     <p
                         className="text-2xl text-center mt-12 mb-16 font-bold"
                         data-aos="fade-down"
-                        data-aos-duration="2000"
+                        data-aos-duration="1000"
                     >
                         Naše djelatnosti uključuju:
                     </p>
@@ -145,7 +145,7 @@ const AboutHero = () => {
                             key={index}
                             data-aos="fade-up"
                             data-aos-delay={index * 150}
-                            data-aos-duration="2000"
+                            data-aos-duration="1000"
                             className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200"
                         >
                             <h3 className="text-2xl font-bold mb-3 text-gray-900">{service.title}</h3>

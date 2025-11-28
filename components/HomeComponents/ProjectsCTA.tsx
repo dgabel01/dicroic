@@ -56,7 +56,7 @@ const projects = [
 export default function ProjectsSection() {
     useEffect(() => {
         AOS.init({
-           
+           duration:1000
         });
     }, []);
 
@@ -68,6 +68,7 @@ export default function ProjectsSection() {
                 <div
                     className="flex flex-col items-center justify-between mb-16 gap-4"
                     data-aos="fade-up"
+                    data-aos-duration = "1000"
                 >
                     <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
                         Naši Projekti
@@ -89,6 +90,7 @@ export default function ProjectsSection() {
                             key={index}
                             data-aos="fade-up"
                             data-aos-delay={index * 150}
+                            data-aos-duration="1000"
                             className="bg-white text-black rounded-2xl border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300"
                         >
                             <CardHeader>
@@ -119,7 +121,7 @@ export default function ProjectsSection() {
                                                 src={img}
                                                 alt={project.title}
                                                 fill
-                                                className="object-cover transition-transform duration-500 hover:scale-105"
+                                                className="object-cover transition-transform duration-300 hover:scale-105"
                                             />
                                         </div>
                                     ))}

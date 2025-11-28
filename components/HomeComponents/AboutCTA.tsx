@@ -8,14 +8,15 @@ import "aos/dist/aos.css"
 
 export default function AboutCTA() {
     useEffect(() => {
-        AOS.init({
-            
+        AOS.init({ 
+            duration: 1000
+
         })
     }, [])
     return (
         <section className="py-4 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">
-                <div className="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up">
+                <div className="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up" data-aos-duration="1000">
                     <h2 className="text-2xl md:text-3xl  font-extrabold mb-8 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">
                         DICROIC d.o.o.
                     </h2>
@@ -27,8 +28,8 @@ export default function AboutCTA() {
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-14 md:gap-24" data-aos="fade-up" data-aos-delay="200">
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-delay="0">
+                <div className="flex flex-col md:flex-row gap-14 md:gap-24" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-duration="1000">
                         <CardHeader>
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
@@ -49,7 +50,7 @@ export default function AboutCTA() {
                         </CardFooter>
                     </Card>
 
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-delay="150">
+                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-duration="1000">
                         <CardHeader>
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
@@ -77,7 +78,7 @@ export default function AboutCTA() {
                         </CardFooter>
                     </Card>
 
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                         <CardHeader>
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
