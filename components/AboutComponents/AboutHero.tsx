@@ -43,7 +43,10 @@ const services = [
 
 const AboutHero = () => {
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
     }, []);
 
     return (
@@ -59,15 +62,14 @@ const AboutHero = () => {
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto p-6 md:p-8">
+            <div className="max-w-7xl mx-auto p-6 md:p-8" data-aos="fade-up"
+                data-aos-duration="1000">
 
                 {/* Main intro + ISO image */}
                 <div className="flex flex-col md:flex-row items-center md:items-start mb-16 gap-8">
 
                     {/* TEXT COLUMN */}
                     <div
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
                         className="flex-1 text-gray-800 space-y-4 leading-relaxed text-base md:text-lg"
                     >
                         <h1 className="text-2xl md:text-3xl font-extrabold mb-4 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">

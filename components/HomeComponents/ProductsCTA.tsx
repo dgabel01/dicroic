@@ -10,8 +10,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline"
 export default function ProductsCTA() {
      useEffect(() => {
             AOS.init({ 
-                duration: 1000
-    
+                duration: 1000,
+                once: true,
             })
         }, [])
 

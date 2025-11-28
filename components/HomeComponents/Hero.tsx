@@ -19,7 +19,8 @@ export default function Hero() {
 
       useEffect(() => {
             AOS.init({ 
-                duration: 1000
+                duration: 1000,
+                once: true
     
             })
         }, [])

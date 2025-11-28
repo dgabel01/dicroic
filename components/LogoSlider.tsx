@@ -9,7 +9,8 @@ import Image from "next/image"
 const LogoSlider = () => {
     useEffect(() => {
             AOS.init({
-                duration:1000
+                duration:1000,
+                once: true,
             });
         }, []);
 

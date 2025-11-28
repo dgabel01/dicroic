@@ -8,7 +8,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 const ContactCTA = () => {
     useEffect(() => {
         AOS.init({
-            duration: 1000
+            duration: 1000,
+            once: true,
         });
     }, []);
 

@@ -8,9 +8,9 @@ import "aos/dist/aos.css"
 
 export default function AboutCTA() {
     useEffect(() => {
-        AOS.init({ 
-            duration: 1000
-
+        AOS.init({
+            duration: 1000,
+            once: true,
         })
     }, [])
     return (

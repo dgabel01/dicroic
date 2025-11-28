@@ -1,3 +1,4 @@
+"use client"
 import AboutHero from "@/components/AboutComponents/AboutHero";
 import LogoSlider from "@/components/LogoSlider";
 import ContactCTA from "@/components/ContactCTA";
