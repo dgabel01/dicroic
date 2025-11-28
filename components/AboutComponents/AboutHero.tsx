@@ -1,7 +1,4 @@
 "use client";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Image from "next/image";
 import isoImage from "@/public/images/iso-90001.jpg";
 import heroImage from "@/public/images/dicroic_hero.jpg";
@@ -42,12 +39,6 @@ const services = [
 ];
 
 const AboutHero = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    }, []);
 
     return (
         <section>

@@ -1,18 +1,9 @@
 "use client"
-import { useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { InformationCircleIcon, FolderIcon, CubeIcon } from "@heroicons/react/24/outline"
-import AOS from "aos"
-import "aos/dist/aos.css"
 
 export default function AboutCTA() {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        })
-    }, [])
     return (
         <section className="py-4 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">

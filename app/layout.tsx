@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AOSWrapper from "@/lib/AOSwrapper";
 
 const montSerrat= Montserrat({
   variable: "--font-montserrat",
@@ -48,6 +49,7 @@ export default function RootLayout({
         className={`${montSerrat.variable} antialiased`}
       >
         <Navbar />
+        <AOSWrapper />
         {children}
         <Footer />
       </body>

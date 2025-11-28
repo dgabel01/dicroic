@@ -1,18 +1,9 @@
 "use client";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Image from "next/image"
 
 //TODO:upscale + logo links
 
 const LogoSlider = () => {
-    useEffect(() => {
-            AOS.init({
-                duration:1000,
-                once: true,
-            });
-        }, []);
 
     const logos = [
         { src: "/images/auvitran_logo.png", alt: "Auvitran" },
@@ -41,7 +32,7 @@ const LogoSlider = () => {
     const duplicatedLogos = [...logos, ...logos]
 
     return (
-        <section className="py-12 mt-24 text-foreground bg-transparent overflow-hidden border rounded-xl shadow-md" data-aos="fade-up" data-aos-duration="1000"> 
+        <section className="py-12 mt-24 text-foreground bg-transparent overflow-hidden border rounded-xl shadow-md" data-aos="fade-up" data-aos-duration="1000">
             <div className="container mx-auto">
                 {/* Infinite Slider Container */}
                 <div className="relative overflow-hidden">

@@ -1,9 +1,7 @@
 "use client"
-import React, { useEffect } from "react"
+import React from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
-import AOS from "aos"
-import "aos/dist/aos.css"
 import {
     Carousel,
     CarouselContent,
@@ -17,15 +15,6 @@ export default function Hero() {
         Autoplay({ delay: 5000, stopOnInteraction: true })
     )
 
-      useEffect(() => {
-            AOS.init({ 
-                duration: 1000,
-                once: true
-    
-            })
-        }, [])
-
-   
     const heroImages = [
         { src: "/images/barco_hero.jpg", alt: "Barco" },
         { src: "/images/dicroic_hero.jpg", alt: "Dicroic" },
@@ -44,14 +33,14 @@ export default function Hero() {
             className="w-full"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
-            data-aos ="fade-up"
+            data-aos="fade-up"
             data-aos-duration="1000"
         >
             <CarouselContent>
                 {heroImages.map((image, index) => (
                     <CarouselItem key={index} className="basis-full pl-0">
                         <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-112 xl:h-128">
-                            
+
                             {/*Povisit visinu slike na mobile */}
                             <Image
                                 src={image.src}

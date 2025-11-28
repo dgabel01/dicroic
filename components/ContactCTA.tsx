@@ -1,17 +1,8 @@
 "use client"
-import {useEffect} from "react";
 import Link from "next/link";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const ContactCTA = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    }, []);
 
     return (
         <section className="py-20 bg-linear-to-r from-cyan-800  to-cyan-500" data-aos="fade-up" data-aos-duration="1000">
