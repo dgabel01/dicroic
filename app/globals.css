@@ -139,3 +139,4 @@
 .dropdown-content[data-state="closed"] {
   animation: dropdown-close 0.2s ease-out forwards;
 }
+

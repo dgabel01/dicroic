@@ -1,102 +1,112 @@
-"use client"
-import Link from "next/link"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { InformationCircleIcon, FolderIcon, CubeIcon } from "@heroicons/react/24/outline"
+"use client";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  BuildingOffice2Icon,
+  FolderOpenIcon,
+  CubeIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 
 export default function AboutCTA() {
-    return (
-        <section className="py-4 bg-background text-foreground">
-            <div className="container mx-auto px-6 md:px-12">
-                <div className="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 className="text-2xl md:text-3xl  font-extrabold mb-8 bg-linear-to-r from-red-700 via-red-500 to-white bg-clip-text text-transparent">
-                        DICROIC d.o.o.
-                    </h2>
-                    <p className="text-2xl font-extrabold  leading-relaxed italic">
-                        &quot;DICROIC d.o.o. je osnovan 1993 godine u Splitu. Od samoga početka aktivni smo na
-                        teritoriju hrvatske i Bosne i Hercegovine. Naša specijalnost je stručna suradnja,
-                        projektiranje, isporuka i izvođenje radova po sistemu &quot;ključ u ruke&quot; tonskih, video,
-                        LED, rasvjetnih i multimedijalnih tehnoloških sustava&quot;.
-                    </p>
+  return (
+    <section className="py-20 lg:py-28 ">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+
+        {/* Intro */}
+        <div className="text-center mb-16 lg:mb-20" data-aos="fade-up">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+            <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+              DICROIC d.o.o.
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed italic">
+            Osnovani 1993. u Splitu. Specijalizirani za <span className="font-bold">„ključ u ruke“ </span>projektiranje,
+            isporuku i ugradnju <strong>tonskih, video, LED, rasvjetnih i multimedijalnih sustava</strong>.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          {[
+            {
+              icon: BuildingOffice2Icon,
+              title: "O NAMA",
+              text: "Više od 30 godina surađujemo s vodećim projektantima na najzahtjevnijim tehnološkim sustavima za kazališta, kongresne centre, hotele i sakralne objekte.",
+              href: "/o-nama",
+              linkText: "Više o nama",
+            },
+            {
+              icon: FolderOpenIcon,
+              title: "PROJEKTI",
+              items: [
+                "Hoteli i kongresni centri",
+                "Kazališta i kulturne ustanove",
+                "Sakralni objekti",
+                "Sportski objekti",
+                "Klubovi i event prostori",
+              ],
+              href: "/projekti",
+              linkText: "Svi projekti",
+            },
+            {
+              icon: CubeIcon,
+              title: "PROIZVODI",
+              items: [
+                "L-Acoustics • Meyer Sound",
+                "Robotic kamere • LED zidovi",
+                "Digitalne miks pultove",
+                "Akustične panele",
+                "Optičke mreže i AVoIP",
+              ],
+              href: "/proizvodi",
+              linkText: "Svi proizvodi",
+            },
+          ].map((card, i) => (
+            <Card
+              key={i}
+              className="group relative overflow-hidden border border-border/50 bg-card/95 backdrop-blur 
+                         hover:shadow-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+            >
+              {/* Subtle colored overlay on hover */}
+              <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-xl bg-linear-to-br from-red-600 to-red-700 shadow-lg">
+                    <card.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold">{card.title}</h3>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-14 md:gap-24" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-duration="1000">
-                        <CardHeader>
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                                    <InformationCircleIcon className="w-6 h-6 text-white" />
-                                </div>
-                                <CardTitle>O NAMA</CardTitle>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="grow">
-                            <p className="text-md  mb-2 leading-relaxed">
-                                Naglašavamo višegodišnju suradnju sa vodećim projektantskim uredima na projektiranju tehnoloških sustava kazališta, RTV, tonskih i video postprodukcijskih studija, konferencijskih i kongresnih centara, prosvjetnih ustanova, medicinskih sustava, sportskih dvorana i ugostiteljskih objekata.
-                            </p>
-                        </CardContent>
-                        <CardFooter>
-                            <Link href="/o-nama" className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity">
-                                Više o nama
-                            </Link>
-                        </CardFooter>
-                    </Card>
+                {card.text ? (
+                  <p className="text-muted-foreground leading-relaxed mb-8">{card.text}</p>
+                ) : (
+                  <>
+                    <ul className="space-y-2 text-muted-foreground mb-8">
+                      {card.items?.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <span className="text-primary">•</span> {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
 
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-duration="1000">
-                        <CardHeader>
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                                    <FolderIcon className="w-6 h-6 text-white" />
-                                </div>
-                                <CardTitle>PROJEKTI</CardTitle>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="grow">
-                            <p className="mb-3 text-md ">Ističemo rad na raznim tipovima projekata u više regija, poput:
-                            </p>
-                            <ul className="text-md  space-y-1">
-                                <li>• raznih institucija</li>
-                                <li>• hotela</li>
-                                <li>• kazališta</li>
-                                <li>• sakralnih objekata</li>
-                                <li>• opreme za klubove</li>
-                                <li>...</li>
-                            </ul>
-                        </CardContent>
-                        <CardFooter>
-                            <Link href="/projekti" className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity">
-                                Svi projekti
-                            </Link>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="flex flex-col flex-1 shadow-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <CardHeader>
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                                    <CubeIcon className="w-6 h-6 text-white" />
-                                </div>
-                                <CardTitle>PROIZVODI</CardTitle>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="grow">
-                            <div className="text-md  mb-2 font-semibold">Neki od proizvoda uključuju:</div>
-                            <ul className="text-md  space-y-1">
-                                <li>• akustične panele</li>
-                                <li>• audio toolboxe</li>
-                                <li>• optičke komunikacije</li>
-                                <li>• robotic camera tehnologije</li>
-                                <li>• digitalne projekcije</li>
-                                <li>...</li>
-                            </ul>
-                        </CardContent>
-                        <CardFooter>
-                            <Link href="/proizvodi" className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity">
-                                Svi proizvodi
-                            </Link>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-        </section>
-    )
+                {/* Fixed clickable button – same primary style for all */}
+                <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90">
+                  <Link href={card.href} className="flex items-center justify-center gap-2">
+                    {card.linkText}
+                    <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

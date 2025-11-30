@@ -32,7 +32,7 @@ const LogoSlider = () => {
     const duplicatedLogos = [...logos, ...logos]
 
     return (
-        <section className="py-12 mt-24 text-foreground bg-transparent overflow-hidden border rounded-xl shadow-md" data-aos="fade-up" data-aos-duration="1000">
+        <section className="py-12 my-24 text-foreground bg-transparent overflow-hidden border rounded-xl shadow-md" data-aos="fade-up" data-aos-duration="1000">
             <div className="container mx-auto">
                 {/* Infinite Slider Container */}
                 <div className="relative overflow-hidden">

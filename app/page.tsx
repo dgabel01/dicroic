@@ -6,7 +6,6 @@ import ProjectsCTA from "@/components/HomeComponents/ProjectsCTA";
 import ContactCTA from "@/components/ContactCTA";
 
 
-//TODO:AOS DURATION HOME PAGE
 export default function Home() {
   return (
     <main>

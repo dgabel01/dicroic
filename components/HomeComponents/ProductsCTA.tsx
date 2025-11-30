@@ -1,93 +1,126 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRightIcon } from "@heroicons/react/24/outline"
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+
+const products = [
+  {
+    id: 1,
+    title: "Qphonic A/V Technology",
+    description:
+      "Public address i emergency sound sustavi za zračne luke, stadione, hotele, kazališta i konferencijske centre diljem svijeta.",
+    image: "/images/publicsys_home.jpg",
+  },
+  {
+    id: 2,
+    title: "AuviTran Audio Toolbox",
+    description:
+      "Vrhunska AV mrežna rješenja s Dante, MADI, AES/EBU i EtherSound podrškom — profesionalni standard u broadcast i live produkciji.",
+    image: "/images/auvitran_home.jpg",
+  },
+  {
+    id: 3,
+    title: "Vaddio Robotic Cameras",
+    description:
+      "Profesionalne PTZ kamere s 22x/30x optičkim zoomom, Full HD senzorima i preciznim robotskim upravljanjem za studije i evente.",
+    image: "/images/roboticcam_home.jpg",
+  },
+  {
+    id: 4,
+    title: "L-Acoustics K2 System",
+    description:
+      "Legendarni K2 line array u kompaktnom formatu — V-DOSC kvaliteta zvuka, 10° fleksibilnost, 100% kompatibilnost s K1 sustavom.",
+    image: "/images/lacoustics_home.jpg",
+  },
+];
 
 export default function ProductsCTA() {
+  return (
+    <section className="py-24 lg:py-32 bg-linear-to-b from-background via-muted/20 to-background">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
 
-    const products = [
-        {
-            id: 1,
-            title: "Qphonic a/v technology",
-            image: "/images/publicsys_home.jpg",
-            description:
-                "Public address and emergency sound system koristi se u uredima vlada, zračnim lukama, željezničkim postajama, konferencijskim prostorima, bolnicama, kazilištima, stadionima, kockarnicama i hotelima diljem svijeta.",
-            link: "/proizvodi",
-        },
-        {
-            id: 2,
-            title: "AuviTran - audio toolbox",
-            image: "/images/auvitran_home.jpg",
-            description:
-                "Auvitran vrhunski proizvođač audio i video sučelja i aplikacija, predstavlja AVBx3 audio komponentu sa EtherSound, ASIO, DANTE, MADI interface-om te AES/EBU ulazima i izlazima",
-            link: "/proizvodi",
-        },
-        {
-            id: 3,
-            title: "Vaddio - Robotic camera technology",
-            image: "/images/roboticcam_home.jpg",
-            description:
-                "PTZ kamere PowerVIEW HD-22 i PowerVIEW HD-30 koriste najnoviji 1/2.8 progresiv MOS senzor od 2.2 Megapixela, optika 22x i 30x, komponentni HD i HDMI izlazi(1080p, 1080i or 720p).",
-            link: "/proizvodi",
-        },
-        {
-            id: 4,
-            title: "L'acoustics novi K2",
-            image: "/images/lacoustics_home.jpg",
-            description:
-                "L-ACOUSTICS novi K2, system design rescaled into a 12\" compact and flexible format, V-DOSC SPL and bandwidth, with 10° inter-element flexibility, 100% acoustic and rigging compatibility with K1 and K1-SB...",
-            link: "/proizvodi",
-        },
-    ]
+        {/* Header */}
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
+            <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+              Dio naše premium ponude
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Partneri smo s vodećim svjetskim proizvođačima profesionalne audio, video i multimedijalne opreme.
+          </p>
+        </div>
 
-    return (
-        <section className="mt-36 bg-background text-foreground">
-            <div className="container mx-auto px-6 md:px-12">
-                {/* Header with Button */}
-                <div className="flex flex-col items-center justify-center gap-4 mb-12 text-center" data-aos="flip-up" data-aos-duration="1000">
-                    <h2 className="text-2xl md:text-3xl  font-extrabold ">
-                        Provjerite dio naše ponude
-                    </h2>
-                    <Link
-                        href="/proizvodi"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
-                    >
-                        Svi proizvodi
-                        <ArrowRightIcon className="w-5 h-5" />
-                    </Link>
+        {/* All Products Button */}
+        <div className="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+          <Link
+            href="/proizvodi"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            Svi proizvodi
+            <ArrowRightIcon className="w-6 h-6" />
+          </Link>
+        </div>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product, index) => (
+            <Link href="/proizvodi" key={product.id} className="block group">
+              <Card
+                className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/90 backdrop-blur
+                           h-full flex flex-col shadow-lg hover:shadow-2xl hover:border-primary/40
+                           transition-all duration-700 ease-out hover:-translate-y-2"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-muted">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
 
-                {/* Products Grid */}
-                <div className="grid gap-8 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" data-aos="flip-up" data-aos-delay="200" data-aos-duration="1000">
-                    {products.map((product) => (
-                        <Card key={product.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-xl" data-aos="flip-left" data-aos-delay={product.id * 50}>
-                            {/* Image Container */}
-                            <div className="relative w-full h-24 overflow-hidden ">
-                                <Image
-                                    src={product.image}
-                                    alt={product.title}
-                                    fill
-                                    className="object-contain"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                />
-                            </div>
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-3 transition-colors duration-500 group-hover:text-primary">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed line-clamp-4">
+                      {product.description}
+                    </p>
+                  </div>
 
-                            {/* Content */}
-                            <CardHeader className="pb-2">
-                                <CardTitle className="text-base">{product.title}</CardTitle>
-                            </CardHeader>
-
-                            <CardContent className="grow pb-4">
-                                <p className="text-md leading-relaxed">
-                                    {product.description}
-                                </p>
-                            </CardContent>
-
-                        </Card>
-                    ))}
+                  {/* CTA: Always visible on mobile/tablet, hover-only on large screens (≥1024px) */}
+                  <div
+                    className={`
+                      mt-6 flex items-center gap-2 text-primary font-semibold
+                      /* Visible by default (mobile + tablet) */
+                      lg:opacity-0 lg:translate-y-2
+                      /* On large screens → reveal only on hover */
+                      lg:group-hover:opacity-100 lg:group-hover:translate-y-0
+                      /* Smooth animation */
+                      transition-all duration-700 ease-out lg:delay-100
+                    `}
+                  >
+                    Saznaj više
+                    <ArrowRightIcon
+                      className="w-5 h-5 transition-transform duration-700 ease-out lg:group-hover:translate-x-3"
+                    />
+                  </div>
                 </div>
-            </div>
-        </section>
-    )
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
