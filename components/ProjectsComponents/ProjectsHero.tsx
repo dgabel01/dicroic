@@ -118,7 +118,12 @@ export default function ProjectsHero() {
                                     <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                                         {/* Image side with nested carousel */}
                                         <div className="relative">
-                                            <Carousel opts={{ loop: true }} className="w-full">
+                                            <Carousel opts={{ loop: true }} className="w-full" onPointerDown={(e) => e.stopPropagation()}
+                                                onPointerMove={(e) => e.stopPropagation()}
+                                                onPointerUp={(e) => e.stopPropagation()}
+                                                onTouchStart={(e) => e.stopPropagation()}
+                                                onTouchMove={(e) => e.stopPropagation()}
+                                                onTouchEnd={(e) => e.stopPropagation()}>
                                                 <CarouselContent>
                                                     {project.images.map((img, i) => (
                                                         <CarouselItem key={i}>

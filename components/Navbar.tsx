@@ -3,44 +3,68 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { routes } from '@/constants/routes';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
 
-  // Force-close the drawer when a link is clicked
   const closeDrawer = () => {
     const checkbox = document.getElementById('mobile-drawer') as HTMLInputElement;
     if (checkbox) checkbox.checked = false;
   };
 
+  const isHome = pathname === '/';
+
   return (
     <div className="navbar bg-background/80 backdrop-blur-lg shadow-md sticky top-0 z-50 border-b border-border/50">
-      {/* Logo */}
+      {/* Logo + Home indicator */}
       <div className="navbar-start">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center group relative">
           <Image
             src="/images/logo_no_bg.png"
             alt="Dicroic Logo"
             width={110}
             height={55}
             priority
-            className="w-28 h-16 object-contain"
+            className="w-28 h-16 object-contain transition-transform group-hover:scale-105 duration-300"
           />
+          {/* Subtle "Home" glow only on homepage */}
+          {isHome && (
+            <div className="absolute -inset-2  rounded-full" />
+          )}
         </Link>
       </div>
 
       {/* Desktop Menu */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-8">
+          {/* Special Home button – always first */}
+          <li>
+            <Link
+              href="/"
+              className={`relative flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-xl transition-all duration-300
+                ${isHome
+                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                  : 'hover:bg-primary/10 hover:text-primary'
+                }`}
+            >
+              <Home className="w-5 h-5" />
+              Početna
+              {isHome && (
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-1  rounded-full" />
+              )}
+            </Link>
+          </li>
+
+          {/* Other routes */}
           {routes.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className={`px-6 py-3 text-base dark:hover:text-white font-semibold rounded-xl transition-all duration-300
+                className={`px-6 py-3 text-base font-semibold rounded-xl transition-all duration-300
                   ${pathname === href
                     ? 'bg-primary text-white shadow-lg'
-                    : 'hover:bg-primary/50 hover:text-white'
+                    : 'hover:bg-primary/10 hover:text-primary'
                   }`}
               >
                 {label}
@@ -59,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <input type="checkbox" id="mobile-drawer" className="drawer-toggle" />
-      <div className="drawer-side z-9999">
+      <div className="drawer-side z-50">
         <label htmlFor="mobile-drawer" aria-label="close menu" className="drawer-overlay" />
 
         <div className="min-h-full w-80 bg-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl flex flex-col">
@@ -72,21 +96,35 @@ export default function Navbar() {
               height={70}
               className="object-contain"
             />
-            <label
-              htmlFor="mobile-drawer"
-              className="btn btn-circle btn-ghost hover:bg-primary/10"
-            >
+            <label htmlFor="mobile-drawer" className="btn btn-circle btn-ghost hover:bg-primary/10">
               <X className="h-6 w-6" />
             </label>
           </div>
 
-          {/* Menu Items – NOW GUARANTEED TO CLOSE */}
+          {/* Mobile Menu – Home first with icon */}
           <ul className="menu p-6 space-y-3 flex-1">
+            {/* Homepage item */}
+            <li>
+              <Link
+                href="/"
+                onClick={closeDrawer}
+                className={`flex items-center gap-4 w-full py-5 px-6 text-xl font-bold rounded-xl transition-all duration-300
+                  ${isHome
+                    ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                    : 'hover:bg-primary/10 hover:text-primary'
+                  }`}
+              >
+                <Home className="w-6 h-6" />
+                Početna
+              </Link>
+            </li>
+
+            {/* Other routes */}
             {routes.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  onClick={closeDrawer}  
+                  onClick={closeDrawer}
                   className={`block w-full py-5 px-6 text-xl font-semibold rounded-xl transition-all duration-300 text-left
                     ${pathname === href
                       ? 'bg-primary text-white shadow-lg'

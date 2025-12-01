@@ -12,24 +12,33 @@ import {
 
 export default function AboutCTA() {
   return (
-    <section className="py-20 lg:py-28 ">
+    <section className="py-12">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
 
-        {/* Intro */}
-        <div className="text-center mb-16 lg:mb-20" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
-            <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+        {/* Intro – smooth fade-up + gradient reveal */}
+        <div className="text-center mb-16 lg:mb-20">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+          >
+            <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent inline-block">
               DICROIC d.o.o.
             </span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed italic">
+          <p 
+            className="text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed italic"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             Osnovani 1993. u Splitu. Specijalizirani za <span className="font-bold">„ključ u ruke“ </span>projektiranje,
             isporuku i ugradnju <strong>tonskih, video, LED, rasvjetnih i multimedijalnih sustava</strong>.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12" data-aos-fade="zoom-in" data-aos-duration="2000">
+        {/* Cards – staggered entrance from bottom */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {[
             {
               icon: BuildingOffice2Icon,
@@ -69,9 +78,11 @@ export default function AboutCTA() {
               key={i}
               className="group relative overflow-hidden border border-border/50 bg-card/95 backdrop-blur 
                          hover:shadow-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={i * 200 + 500}   // 500ms after text, then staggered
             >
-              {/* Subtle colored overlay on hover */}
-              <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="relative p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -84,18 +95,15 @@ export default function AboutCTA() {
                 {card.text ? (
                   <p className="text-muted-foreground leading-relaxed mb-8">{card.text}</p>
                 ) : (
-                  <>
-                    <ul className="space-y-2 text-muted-foreground mb-8">
-                      {card.items?.map((item) => (
-                        <li key={item} className="flex items-center gap-2">
-                          <span className="text-primary">•</span> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </>
+                  <ul className="space-y-2 text-muted-foreground mb-8">
+                    {card.items?.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <span className="text-primary">•</span> {item}
+                      </li>
+                    ))}
+                  </ul>
                 )}
 
-                {/* Fixed clickable button – same primary style for all */}
                 <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90">
                   <Link href={card.href} className="flex items-center justify-center gap-2">
                     {card.linkText}
