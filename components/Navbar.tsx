@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="navbar-start">
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo_no_bg.png"
             alt="Dicroic Logo"
             width={110}
             height={55}
@@ -37,10 +37,10 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`px-6 py-3 text-base hover:text-white font-semibold rounded-xl transition-all duration-300
+                className={`px-6 py-3 text-base dark:hover:text-white font-semibold rounded-xl transition-all duration-300
                   ${pathname === href
                     ? 'bg-primary text-white shadow-lg'
-                    : 'hover:bg-base-200 hover:text-primary'
+                    : 'hover:bg-primary/50 hover:text-white'
                   }`}
               >
                 {label}

@@ -103,7 +103,7 @@ export default function ProjectsSection() {
               className="group overflow-hidden rounded-3xl border border-border/50 bg-card/95 backdrop-blur
                          shadow-2xl hover:shadow-3xl hover:border-primary/30
                          /* Ultra-smooth hover lift */
-                         transition-all duration-800 ease-out hover:-translate-y-3"
+                         transition-all duration-800 ease-out hover:-translate-y-3 p-0"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
@@ -124,8 +124,8 @@ export default function ProjectsSection() {
 
                   <ul className="space-y-4 text-lg text-muted-foreground mb-10">
                     {project.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-primary mt-1.5">▸</span>
+                      <li key={i} className="flex items-start gap-4">
+                        <span className="text-primary ">▸</span>
                         <span>{item}</span>
                       </li>
                     ))}

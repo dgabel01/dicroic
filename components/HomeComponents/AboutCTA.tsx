@@ -29,7 +29,7 @@ export default function AboutCTA() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12" data-aos-fade="zoom-in" data-aos-duration="2000">
           {[
             {
               icon: BuildingOffice2Icon,
