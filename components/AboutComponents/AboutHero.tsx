@@ -47,10 +47,10 @@ export default function AboutHero() {
         <Image
           src={heroImage}
           alt="DICROIC d.o.o. - 30+ godina izvrsnosti"
-          className="w-full object-cover h-[50vh] md:h-[70vh] brightness-[0.65]"
+          className="w-full object-cover h-[50vh] md:h-[70vh] brightness-[0.85]"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent" />
       </div>
 
       <section className="relative bg-linear-to-b from-background via-muted/20 to-background">
@@ -129,7 +129,7 @@ export default function AboutHero() {
           </div>
 
           {/* Services Section – original text preserved */}
-          <div className="mt-32">
+          <div className="mt-32" data-aos="fade-up" data-aos-duration="2000">
             <h2 className="text-center text-4xl md:text-5xl font-black mb-16">
               <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                 Naše djelatnosti uključuju:
@@ -144,7 +144,6 @@ export default function AboutHero() {
                              p-8 shadow-xl hover:shadow-2xl hover:border-primary/40
                              transition-all duration-700 ease-out hover:-translate-y-3"
                   data-aos="fade-up"
-                  data-aos-delay={i * 100}
                 >
                   <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 

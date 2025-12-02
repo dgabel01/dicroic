@@ -96,52 +96,50 @@ export default function ProjectsSection() {
         </div>
 
         {/* Projects */}
-        <div className="grid gap-20 lg:gap-28">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden rounded-3xl border border-border/50 bg-card/95 backdrop-blur
+        <div className="grid gap-20 lg:gap-28 max-w-5xl mx-auto">          {projects.map((project, index) => (
+          <Card
+            key={index}
+            className="group overflow-hidden rounded-3xl border border-border/50 bg-card/95 backdrop-blur
                          shadow-2xl hover:shadow-3xl hover:border-primary/30
                          /* Ultra-smooth hover lift */
                          transition-all duration-800 ease-out hover:-translate-y-3 p-0"
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-            >
-              {/* Gentle glow on hover */}
-              <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-800" />
+            data-aos="fade-up"
+          >
+            {/* Gentle glow on hover */}
+            <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-800" />
 
+            <div className="relative">
+              {/* Carousel - always on top */}
               <div className="relative">
-                {/* Carousel - always on top */}
-                <div className="relative">
-                  <ProjectCarousel images={project.images} title={project.title} />
-                </div>
-
-                {/* Text Content */}
-                <div className="p-8 lg:p-12">
-                  <h3 className="text-3xl lg:text-4xl font-black mb-8 bg-linear-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
-                    {project.title}
-                  </h3>
-
-                  <ul className="space-y-4 text-lg text-muted-foreground mb-10">
-                    {project.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
-                        <span className="text-primary ">▸</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* FIXED: Fully clickable button */}
-                  <Button asChild size="lg" className="w-full sm:w-auto">
-                    <Link href="/projekti" className="flex items-center justify-center gap-3 text-lg font-semibold">
-                      Detalji projekta
-                      <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-                    </Link>
-                  </Button>
-                </div>
+                <ProjectCarousel images={project.images} title={project.title} />
               </div>
-            </Card>
-          ))}
+
+              {/* Text Content */}
+              <div className="p-8 lg:p-12">
+                <h3 className="text-3xl lg:text-4xl font-black mb-8 bg-linear-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+                  {project.title}
+                </h3>
+
+                <ul className="space-y-4 text-lg text-muted-foreground mb-10">
+                  {project.description.map((item, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <span className="text-primary ">▸</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* FIXED: Fully clickable button */}
+                <Button asChild size="lg" className="w-full sm:w-auto">
+                  <Link href="/projekti" className="flex items-center justify-center gap-3 text-lg font-semibold">
+                    Detalji projekta
+                    <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Card>
+        ))}
         </div>
       </div>
     </section>

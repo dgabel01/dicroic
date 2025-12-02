@@ -94,7 +94,7 @@ export default function References() {
             </div>
 
             {/* Final CTA */}
-            <section className="mt-36">
+            <section className="mt-36" data-aos="fade-up" data-aos-duration="2000">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="mb-6 text-4xl font-bold text-zinc-900 sm:text-5xl">
                         <span className="ext-5xl md:text-6xl  font-black mb-6 bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">Spremni za vaš sljedeći projekt?</span>

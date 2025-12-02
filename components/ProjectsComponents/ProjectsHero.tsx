@@ -156,7 +156,7 @@ export default function ProjectsHero() {
                                                 <div className="mb-3 text-md font-bold uppercase tracking-wider ">
                                                     {project.category}
                                                 </div>
-                                                <h3 className="mb-6 text-3xl font-bold bg-linear-to-r from-red-600 to-orange-500 bg-clip-text text-transparent lg:text-4xl">
+                                                <h3 className="mb-6 text-3xl font-bold text-red-700 lg:text-4xl">
                                                     {project.title}
                                                 </h3>
                                                 <ul className="space-y-3 text-zinc-700">
