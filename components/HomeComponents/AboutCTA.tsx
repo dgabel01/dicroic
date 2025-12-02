@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,11 +11,11 @@ import {
 
 export default function AboutCTA() {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-12 lg:py-16">
       <div className="container mx-auto px-6 max-w-7xl">
 
         {/* Intro */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-16 lg:mb-20" data-aos="fade-up" data-aos-duration="2000">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6"
             data-aos="fade-up"

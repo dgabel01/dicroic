@@ -58,7 +58,7 @@ const products = [
 
 export default function ProductShowcase() {
   return (
-    <section className="py-20 lg:py-28 bg-linear-to-b from-background to-muted/20">
+    <section className="py-20 lg:py-28">
       <div className="container mx-auto px-6 max-w-7xl">
 
         {/* Header */}
