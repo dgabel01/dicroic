@@ -40,20 +40,20 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1 gap-8">
           {/* Special Home button – always first */}
           <li>
-            <Link
-              href="/"
-              className={`relative flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-xl transition-all duration-300
-                ${isHome
-                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                  : 'hover:bg-primary/10 hover:text-primary'
-                }`}
-            >
-              <Home className="w-5 h-5" />
-              Početna
-              {isHome && (
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-1  rounded-full" />
-              )}
-            </Link>
+            {/* Special Home button – always first */}
+            {!isHome && (
+
+              <Link
+                href="/"
+                className={`relative flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-xl transition-all duration-300
+        hover:bg-primary/10 hover:text-primary
+      `}
+              >
+                <Home className="w-5 h-5" />
+                Početna
+              </Link>
+
+            )}
           </li>
 
           {/* Other routes */}
@@ -90,7 +90,7 @@ export default function Navbar() {
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-border/30">
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo_no_bg.png"
               alt="Dicroic"
               width={140}
               height={70}
@@ -104,21 +104,18 @@ export default function Navbar() {
           {/* Mobile Menu – Home first with icon */}
           <ul className="menu p-6 space-y-3 flex-1">
             {/* Homepage item */}
-            <li>
-              <Link
-                href="/"
-                onClick={closeDrawer}
-                className={`flex items-center gap-4 w-full py-5 px-6 text-xl font-bold rounded-xl transition-all duration-300
-                  ${isHome
-                    ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                    : 'hover:bg-primary/10 hover:text-primary'
-                  }`}
-              >
-                <Home className="w-6 h-6" />
-                Početna
-              </Link>
-            </li>
-
+            {!isHome && (
+              <li>
+                <Link
+                  href="/"
+                  onClick={closeDrawer}
+                  className="flex items-center gap-4 w-full py-5 px-6 text-xl font-bold rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary"
+                >
+                  <Home className="w-6 h-6" />
+                  Početna
+                </Link>
+              </li>
+            )}
             {/* Other routes */}
             {routes.map(({ href, label }) => (
               <li key={href}>

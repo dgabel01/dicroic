@@ -1,12 +1,12 @@
-import { Building2, Music, Clock, Home, Theater, Church, LucideIcon } from "lucide-react";
+import { Building2, Music, Clock, Hotel, Theater, Church, LucideIcon } from "lucide-react";
 
 export type CategoryKey =
     | "Projekti"
     | "Ostali projekti"
     | "Oprema za club-ove"
-    | "HOTELI"
-    | "KAZALIŠTA"
-    | "SAKRALNI OBJEKTI";
+    | "Hoteli"
+    | "Kazališta"
+    | "Sakralni objekti";
 
 export const referencesData: Record<CategoryKey, string[]> = {
     Projekti: [
@@ -125,7 +125,7 @@ export const referencesData: Record<CategoryKey, string[]> = {
         "Disco club \"LIVNO\" Livno, hotel \"Park\"",
         "Disco club \"PALADIUM\" Mostar",
     ],
-    HOTELI: [
+    Hoteli: [
         "Kongresne dvorane hotel \"ART\" Split",
         "Kongresna dvorana hotel \"OMORIKA\" - Crikvenica",
         "Kongresna dvorana hotel \"SNJEŽNIK\" - Gerovo",
@@ -147,7 +147,7 @@ export const referencesData: Record<CategoryKey, string[]> = {
         "TN BELVEDERE - Vrsar - AV & Multimedijalni sustav",
         "TN PETALON - AV & Multimedijalni sustav",
     ],
-    KAZALIŠTA: [
+    Kazališta: [
         "Hrvatsko narodno kazalište - Split",
         "Gradsko kazalište lutaka - Split",
         "Hrvatska kazališna kuća - Zadar",
@@ -155,7 +155,7 @@ export const referencesData: Record<CategoryKey, string[]> = {
         "Digitalni inspicijentski žični / bežični sustav komunikacije HNK Split",
         "Sustav unutrašnjeg i vanjskog ozvučenja HNK Split",
     ],
-    "SAKRALNI OBJEKTI": [
+    "Sakralni objekti": [
         "Katedrala Sv. Dujma - Split",
         "Nadbiskupijsko sjemenište - Split, glavna dvorana",
         "Katedrala Sv. Lovre - Trogir",
@@ -176,7 +176,7 @@ export const categoryIcons: Record<CategoryKey, LucideIcon> = {
     Projekti: Building2,
     "Ostali projekti": Clock,
     "Oprema za club-ove": Music,
-    HOTELI: Home,
-    KAZALIŠTA: Theater,
-    "SAKRALNI OBJEKTI": Church,
+    Hoteli: Hotel,
+    Kazališta: Theater,
+    "Sakralni objekti": Church,
 };

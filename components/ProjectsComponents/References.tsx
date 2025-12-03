@@ -21,6 +21,7 @@ export default function References() {
                         <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                             Reference
                         </span>
+                        <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
                         Više od 30 godina iskustva u najzahtjevnijim audio-video projektima u Hrvatskoj i regiji
@@ -31,20 +32,20 @@ export default function References() {
                 <div className="max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="w-full flex items-center justify-between rounded-3xl border border-border/50 bg-card/95 backdrop-blur px-10 py-8 text-left shadow-2xl hover:shadow-3xl hover:border-primary/40 transition-all duration-500 group"
+                        className="w-full flex items-center justify-between rounded-2xl sm:rounded-3xl border border-border/50 bg-card/95 backdrop-blur px-4 sm:px-6 md:px-10 py-4 sm:py-6 md:py-8 text-left shadow-xl sm:shadow-2xl hover:shadow-2xl sm:hover:shadow-3xl hover:border-primary/40 transition-all duration-500 group"
                     >
-                        <div className="flex items-center gap-6">
-                            {Icon && <Icon className="w-10 h-10 text-primary" />}
-                            <div>
-                                <h3 className="text-3xl font-black text-foreground">
+                        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 flex-1">
+                            {Icon && <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary shrink-0" />}
+                            <div className="flex-1 min-w-0">
+                                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-red-600 truncate">
                                     {selectedCategory}
                                 </h3>
-                                <p className="text-lg text-muted-foreground">
-                                    {referencesData[selectedCategory].length} realiziranih projekata
+                                <p className="text-sm mt-2 sm:text-base md:text-lg text-muted-foreground">
+                                    Realiziranih projekata: {referencesData[selectedCategory].length} 
                                 </p>
                             </div>
                         </div>
-                        <ChevronDown className={`w-8 h-8 text-muted-foreground transition-transform duration-300 group-hover:scale-110 ${isOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-muted-foreground transition-transform duration-300 group-hover:scale-110 shrink-0 ml-2 ${isOpen ? "rotate-180" : ""}`} />
                     </button>
 
                     {/* Dropdown Menu */}

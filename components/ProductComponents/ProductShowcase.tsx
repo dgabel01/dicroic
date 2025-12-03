@@ -12,7 +12,7 @@ const products = [
     description:
       "Legendarni K2 line array u kompaktnom formatu • Ultra-lagani 5XT koaksijalni zvučnici • Moćni SB15m subwoofer s DED tehnologijom.",
     logo: "/images/lacoustics_logo.png",
-    href: "/proizvodi/lacoustics",
+    href: "https://www.l-acoustics.com/",
   },
   {
     title: "LAWO",
@@ -20,7 +20,7 @@ const products = [
     description:
       "Nagrađivana nova generacija profesionalnih audio konzola • Savršena za broadcast, live i studijsku produkciju.",
     logo: "/images/lawo_logo.png",
-    href: "/proizvodi/lawo",
+    href: "https://lawo.com/",
   },
   {
     title: "Qphonic A/V Technology",
@@ -28,7 +28,7 @@ const products = [
     description:
       "Globalno korišteni sustavi za zračne luke, stadione, hotele, kazališta i vladine objekte diljem svijeta.",
     logo: "/images/publicsys_home.jpg",
-    href: "/proizvodi/qphonic",
+    href: "qhonics.com",
   },
   {
     title: "JOCAVI Acoustic Panels",
@@ -36,7 +36,7 @@ const products = [
     description:
       "Najmoderniji akustični paneli i rješenja za profesionalnu obradu prostora • Kazališta, studiji, kongresni centri.",
     logo: "/images/jocavi.jpg",
-    href: "/proizvodi/jocavi",
+    href: "https://jocavi.net/",
   },
   {
     title: "AuviTran Audio Toolbox",
@@ -44,7 +44,7 @@ const products = [
     description:
       "Vrhunska AV mrežna rješenja • AVBx3 platforma s potpunom kompatibilnošću modernih audio protokola.",
     logo: "/images/auvitran_logo.png",
-    href: "/proizvodi/auvitran",
+    href: "https://www.auvitran.com/",
   },
   {
     title: "Vaddio Robotic Cameras",
@@ -52,7 +52,7 @@ const products = [
     description:
       "Profesionalne robotske kamere s 22x/30x optičkim zoomom • Full HD • HDMI • Idealne za evente i hibridne konferencije.",
     logo: "/images/vaddio_logo.png",
-    href: "/proizvodi/vaddio",
+    href: "https://www.legrandav.com/products/vaddio",
   },
 ];
 
@@ -71,6 +71,7 @@ export default function ProductShowcase() {
           <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto">
             Ekskluzivni zastupnici i distributeri vodećih svjetskih brendova profesionalne audio, video i akustične opreme.
           </p>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
         {/* Responsive Grid */}
@@ -116,7 +117,9 @@ export default function ProductShowcase() {
                 <div className="mt-8">
                   <Link
                     href={product.href}
-                    className="group/btn inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-primary text-white font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-primary text-white font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:gap-4"
                   >
                     Saznaj više
                     <ArrowRightIcon className="w-5 h-5 transition-transform group-btn-hover:translate-x-2" />

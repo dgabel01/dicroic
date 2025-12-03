@@ -41,6 +41,7 @@ export default function ContactHero() {
           <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">
             Uvijek smo dostupni za savjete, ponude i realizaciju vaših projekata.
           </p>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
         {/* Grid Layout */}
@@ -95,7 +96,7 @@ export default function ContactHero() {
                 <div className="flex items-start gap-4">
                   <Building2 className="w-8 h-8 text-primary mt-1" />
                   <div>
-                    <h3 className="text-2xl font-black">Dicroic d.o.o. – Split</h3>
+                    <h3 className="text-2xl font-black">Dicroic d.o.o. - Split</h3>
                     <p className="text-lg font-semibold text-primary mt-1">
                       TVRTKA ZA PROJEKTIRANJE, MONTAŽU I ODRŽAVANJE<br />
                       U PODRUČJU ELEKTROTEHNIKE

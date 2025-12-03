@@ -58,9 +58,9 @@ export default function AboutHero() {
 
           {/* Main Intro + ISO Badge */}
           <div className="grid lg:grid-cols-3 gap-12 lg:gap-20 items-start mb-24">
-            
+
             {/* Full original text – untouched */}
-            <div className="lg:col-span-2 space-y-7 text-lg md:text-xl leading-relaxed text-foreground/90" data-aos ="fade-right" data-aos-duration = "2000">
+            <div className="lg:col-span-2 space-y-7 text-lg md:text-xl leading-relaxed text-foreground/90" data-aos="fade-right" data-aos-duration="2000">
               <h1 className="text-5xl md:text-6xl font-black tracking-tight">
                 <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                   DICROIC d.o.o.
@@ -134,6 +134,7 @@ export default function AboutHero() {
               <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                 Naše djelatnosti uključuju:
               </span>
+              <div className="h-1 w-20 bg-red-600 rounded-full mx-auto my-6" />
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -142,10 +143,10 @@ export default function AboutHero() {
                   key={i}
                   className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur
                              p-8 shadow-xl hover:shadow-2xl hover:border-primary/40
-                             transition-all duration-700 ease-out hover:-translate-y-3"
+                             transition-all duration-700 ease-out hover:-translate-y-3 hover:text-red-500"
                   data-aos="fade-up"
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:text-red-500" />
 
                   <h3 className="relative text-2xl font-black mb-6 text-foreground">
                     {service.title}

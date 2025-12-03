@@ -35,7 +35,20 @@ export const metadata: Metadata = {
     "konferencijska oprema",
     "light",
     "svjetlo",
+    "rješenja",
+    "sustavi",
+    "sistemi",
   ],
+  icons:{
+    icon: "/icons/favicon.ico",
+    apple:"/icons/apple-touch-icon.png",
+    other:[
+      { rel: 'icon', url: '/icons/favicon-16x16.png', sizes: '16x16' },
+      { rel: 'icon', url: '/icons/favicon-32x32.png', sizes: '32x32' },
+      { rel: 'icon', url: '/icons/icon-192x192.png', sizes: '192x192' },
+      { rel: 'icon', url: '/icons/icon-512x512.png', sizes: '512x512' },
+    ],
+  }
 };
 
 export default function RootLayout({
@@ -51,6 +64,7 @@ export default function RootLayout({
         <Navbar />
         <AOSWrapper />
         {children}
+        <AOSWrapper/>
         <Footer />
       </body>
     </html>

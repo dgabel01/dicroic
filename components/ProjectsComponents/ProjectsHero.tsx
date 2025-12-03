@@ -23,6 +23,7 @@ const allProjects = [
         ],
         images: ["/images/medugorje_home_1.jpg", "/images/medugorje_home_2.jpg", "/images/medugorje_home_3.jpg"],
         featured: true,
+        technologies: ["L-Acoustics", "Dante", "LED Wall"],
     },
     {
         title: "Radio Mir Međugorje",
@@ -34,6 +35,7 @@ const allProjects = [
         ],
         images: ["/images/radio_mir_1.jpg", "/images/radio_mir_2.jpg", "/images/radio_mir_3.jpg"],
         featured: true,
+        technologies: ["Sennheiser", "Yamaha", "Soundproofing"],
     },
     {
         title: "Hotel Lone - Rovinj",
@@ -45,6 +47,7 @@ const allProjects = [
         ],
         images: ["/images/hotel_rovinj_1.jpg", "/images/hotel_rovinj_2.jpg", "/images/hotel_rovinj_3.jpg"],
         featured: true,
+        technologies: ["LED Wall", "Shure", "Dante"],
     },
     {
         title: "1st L'acoustics system KARA in Slovenia",
@@ -56,6 +59,7 @@ const allProjects = [
         ],
         images: ["/images/kara_1.jpg", "/images/kara_2.jpg", "/images/kara_3.jpg"],
         featured: true,
+        technologies: ["L-Acoustics", "LA8", "KARA"],
     },
 
 ];
@@ -96,7 +100,9 @@ export default function ProjectsHero() {
                         realizirali diljem regije.
                     </p>
                 </div>
+                <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
             </section>
+
 
             {/* Carousel + Controls + Counter */}
             <div className="relative space-y-6 px-6 pb-16 lg:px-8" data-aos="fade-up" data-aos-duration="2000">
@@ -114,7 +120,7 @@ export default function ProjectsHero() {
                     <CarouselContent>
                         {allProjects.map((project, index) => (
                             <CarouselItem key={index}>
-                                <Card className="border-zinc-200 bg-white shadow-lg">
+                                <Card className="border-zinc-200 bg-white shadow-lg p-0">
                                     <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                                         {/* Image side with nested carousel */}
                                         <div className="relative">
@@ -126,7 +132,7 @@ export default function ProjectsHero() {
                                                 onTouchEnd={(e) => e.stopPropagation()}>
                                                 <CarouselContent>
                                                     {project.images.map((img, i) => (
-                                                        <CarouselItem key={i}>
+                                                        <CarouselItem key={i} >
                                                             <div className="relative aspect-4/3 overflow-hidden rounded-lg bg-zinc-100">
                                                                 <Image
                                                                     src={img}
@@ -144,7 +150,7 @@ export default function ProjectsHero() {
                                             </Carousel>
 
                                             {project.featured && (
-                                                <div className="absolute left-4 top-4 z-10 rounded-full  px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
+                                                <div className="absolute left-4 top-4 z-10 rounded-full  px-4 py-1.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg">
                                                     ISTAKNUTI PROJEKT
                                                 </div>
                                             )}
@@ -153,13 +159,13 @@ export default function ProjectsHero() {
                                         {/* Text side */}
                                         <div className="flex flex-col justify-center space-y-6 p-8 lg:p-12">
                                             <div>
-                                                <div className="mb-3 text-md font-bold uppercase tracking-wider ">
+                                                <div className="mb-3 text-lg font-bold uppercase tracking-wider ">
                                                     {project.category}
                                                 </div>
                                                 <h3 className="mb-6 text-3xl font-bold text-red-700 lg:text-4xl">
                                                     {project.title}
                                                 </h3>
-                                                <ul className="space-y-3 text-zinc-700">
+                                                <ul className="space-y-3 text-zinc-700 text-lg">
                                                     {project.description.map((item, i) => (
                                                         <li key={i} className="flex items-start gap-3 bullet-point">
                                                             <span className="text-primary ">▸</span>
@@ -169,17 +175,17 @@ export default function ProjectsHero() {
                                                 </ul>
                                             </div>
 
-                                            <div className="flex flex-wrap items-center gap-4 border-t border-zinc-200 pt-6 text-sm text-zinc-600">
+                                            <div className="flex flex-wrap items-center gap-4 border-t border-zinc-200 pt-6 text-md text-zinc-600">
                                                 <span className="font-semibold text-zinc-900">Tehnologije:</span>
-                                                <span className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700">
-                                                    L-Acoustics
-                                                </span>
-                                                <span className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700">
-                                                    Dante
-                                                </span>
-                                                <span className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700">
-                                                    LED Wall
-                                                </span>
+
+                                                {project.technologies.map((tech, i) => (
+                                                    <span
+                                                        key={i}
+                                                        className="rounded-full bg-red-300 px-3 py-1 font-bold text-black"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
@@ -192,17 +198,16 @@ export default function ProjectsHero() {
                     <div className="mx-auto mt-8 flex max-w-7xl items-center justify-center gap-8 px-4">
                         <CarouselPrevious className="static translate-y-0 border-2  bg-white " />
 
-                        <div className="flex items-center gap-2 text-xl font-semibold text-zinc-900 ">
+                        <div className="flex items-center gap-2 text-xl md:text-3xl font-semibold text-zinc-900 ">
                             <span className="text-red-600">Projekt</span>
                             <span className="text-red-600">{current}</span>
                             <span className="text-zinc-400">/</span>
                             <span className="text-zinc-500">{count}</span>
                         </div>
-
                         <CarouselNext className="static translate-y-0 border-2  bg-white " />
                     </div>
                 </Carousel>
-            </div>
+            </div >
         </>
     );
 }

@@ -18,7 +18,7 @@ export default function AboutCTA() {
         <div className="text-center mb-16 lg:mb-20" data-aos="fade-up" data-aos-duration="2000">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6"
-            data-aos="fade-up"
+
           >
             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
               DICROIC d.o.o.
@@ -26,12 +26,12 @@ export default function AboutCTA() {
           </h1>
           <p
             className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed italic"
-            data-aos="fade-up"
-            data-aos-delay="200"
+
           >
             Osnovani 1993. u Splitu. Specijalizirani za <span className="font-bold">„ključ u ruke“</span> projektiranje,
             isporuku i ugradnju <strong>tonskih, video, LED, rasvjetnih i multimedijalnih sustava</strong>.
           </p>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
         {/* Cards – perfectly balanced on tablet */}
@@ -87,7 +87,7 @@ export default function AboutCTA() {
                 <div className="flex items-center gap-3 mb-5">
                   {/* Smaller icon container */}
                   <div className="p-2.5 rounded-lg bg-linear-to-br from-red-600 to-red-700 shadow-md shrink-0">
-                    <card.icon className="w-5 h-5 text-white" /> 
+                    <card.icon className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black leading-tight">
                     {card.title}

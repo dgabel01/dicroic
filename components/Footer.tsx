@@ -48,7 +48,7 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <p className="text-xs text-gray-500 mt-4">
+                        <p className="text-xs font-semibold mt-4">
                             © {currentYear} Dicroic d.o.o. Sva prava zadržana.
                         </p>
                     </div>
@@ -74,10 +74,10 @@ export default function Footer() {
                     <div className="flex flex-col items-center md:items-end">
                         <button
                             onClick={scrollToTop}
-                            className="group flex flex-col items-center gap-3 text-gray-400 hover:text-white transition-all duration-300"
+                            className="group flex flex-col items-center gap-3 text-white  transition-all duration-300"
                             aria-label="Povratak na vrh"
                         >
-                            <div className="p-2 bg-gray-800 rounded-full group-hover:bg-primary transition-colors duration-300">
+                            <div className="p-2 bg-gray-800 rounded-full group-hover:bg-red-500 transition-colors duration-300">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 w-6 group-hover:-translate-y-1 transition-transform duration-300"
