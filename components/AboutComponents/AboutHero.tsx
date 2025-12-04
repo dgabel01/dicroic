@@ -156,7 +156,7 @@ export default function AboutHero() {
                     <ul className="space-y-3 text-muted-foreground text-base">
                       {service.items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3">
-                          <span className="text-primary mt-1.5">•</span>
+                          <span className="text-primary">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
