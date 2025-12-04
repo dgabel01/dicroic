@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -115,12 +114,12 @@ export default function ProjectsSection() {
               </div>
 
               {/* Text Content */}
-              <div className="p-8 lg:p-12">
-                <h3 className="text-3xl lg:text-4xl font-black mb-8 bg-linear-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+              <div className="p-8 lg:p-8">
+                <h3 className="text-3xl lg:text-3xl font-black mb-6 bg-linear-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
                   {project.title}
                 </h3>
 
-                <ul className="space-y-4 text-lg text-muted-foreground mb-10">
+                <ul className="space-y-3 text-lg text-muted-foreground mb-8">
                   {project.description.map((item, i) => (
                     <li key={i} className="flex items-start gap-4">
                       <span className="text-primary ">▸</span>

@@ -1,9 +1,18 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { useState, useCallback, useEffect } from "react";
+import type { EmblaCarouselType } from "embla-carousel";
 
 const products = [
   {
@@ -38,6 +47,23 @@ export default function ProductsCTA() {
   const featured = products.filter(p => p.featured);
   const regular = products.filter(p => !p.featured);
 
+  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => embla?.scrollPrev(), [embla]);
+  const scrollNext = useCallback(() => embla?.scrollNext(), [embla]);
+
+  const onSelect = useCallback(() => {
+    if (!embla) return;
+    setSelectedIndex(embla.selectedScrollSnap());
+  }, [embla]);
+
+  useEffect(() => {
+    if (!embla) return;
+    onSelect();
+    embla.on("select", onSelect);
+  }, [embla, onSelect]);
+
   return (
     <section className="py-24 lg:py-32 bg-linear-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -65,82 +91,147 @@ export default function ProductsCTA() {
           </Link>
         </div>
 
-        {/* Featured Large Cards – 2 columns on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {featured.map((product, i) => (
-            <Link href="/proizvodi" key={product.id} className="block group">
-              <Card
-                className="overflow-hidden rounded-3xl border border-border/60 bg-card/95 backdrop-blur
-                           shadow-2xl hover:shadow-3xl hover:border-primary/40
-                           transition-all duration-800 ease-out hover:-translate-y-3 p-0"
-                data-aos="fade-up"
-                data-aos-delay={i * 150}
-              >
-                <div className="relative h-80 lg:h-96 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover transition-transform duration-1200 group-hover:scale-110"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-                </div>
+        {/* Mobile: Single Carousel for All Products */}
+        <div className="lg:hidden">
+          <Carousel
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 5000 })]}
+            setApi={(api) => setEmbla(api ?? null)}
+            className="w-full"
+          >
+            <CarouselContent>
+              {products.map((product) => (
+                <CarouselItem key={product.id}>
+                  <Link href="/proizvodi" className="block group">
+                    <Card
+                      className="overflow-hidden rounded-2xl border border-border/50 bg-card
+                                 h-full flex flex-col shadow-lg hover:shadow-xl hover:border-primary/40
+                                 transition-all duration-700 hover:-translate-y-2"
+                      data-aos="fade-up"
+                    >
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={product.image}
+                          alt={product.title}
+                          fill
+                          className="object-contain transition-transform duration-1000 group-hover:scale-110"
+                          sizes="100vw"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                      </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
-                  <h3 className="text-3xl lg:text-4xl font-black mb-4">
-                    {product.title}
-                  </h3>
-                  <p className="text-lg lg:text-xl opacity-90 font-semibold leading-relaxed line-clamp-3">
-                    {product.description}
-                  </p>
-                  <div className="mt-6 flex items-center gap-3 text-white font-bold text-lg">
-                    Saznaj više
-                    <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-3" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-          ))}
+                      <div className="p-6 flex-1 flex flex-col justify-between">
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                          {product.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                          {product.description}
+                        </p>
+                        <div className="mt-6 flex items-center gap-2 text-primary font-semibold">
+                          Saznaj više
+                          <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-6 flex items-center justify-center gap-8 px-12">
+              <CarouselPrevious
+                onClick={scrollPrev}
+                className="left-2 lg:left-0 size-8 md:size-9 lg:size-10 static translate-y-0"
+              />
+              <div className="text-md text-muted-foreground">
+                {selectedIndex + 1} / {products.length}
+              </div>
+              <CarouselNext
+                onClick={scrollNext}
+                className="right-2 lg:right-0 size-8 md:size-9 lg:size-10 static translate-y-0"
+              />
+            </div>
+          </Carousel>
         </div>
 
-        {/* Smaller Cards Below – 2 columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {regular.map((product, i) => (
-            <Link href="/proizvodi" key={product.id} className="block group">
-              <Card
-                className="overflow-hidden rounded-2xl border border-border/50 bg-card/90 backdrop-blur
-                           h-full flex flex-col shadow-lg hover:shadow-2xl hover:border-primary/40
-                           transition-all duration-700 hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-contain transition-transform duration-1000 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {product.description}
-                  </p>
-                  <div className="mt-6 flex items-center gap-2 text-primary font-semibold">
-                    Saznaj više
-                    <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+        {/* Desktop: Original Layout */}
+        <div className="hidden lg:block">
+          {/* Featured Large Cards – 2 columns */}
+          <div className="grid grid-cols-2 gap-8 mb-12">
+            {featured.map((product, i) => (
+              <Link href="/proizvodi" key={product.id} className="block group">
+                <Card
+                  className="overflow-hidden rounded-3xl border border-border/60 bg-card/95 backdrop-blur
+                             shadow-2xl hover:shadow-3xl hover:border-primary/40
+                             transition-all duration-800 ease-out hover:-translate-y-3 p-0"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 150}
+                >
+                  <div className="relative h-96 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover transition-transform duration-1200 group-hover:scale-110"
+                      sizes="50vw"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
                   </div>
-                </div>
-              </Card>
-            </Link>
-          ))}
+
+                  <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
+                    <h3 className="text-4xl font-black mb-4">
+                      {product.title}
+                    </h3>
+                    <p className="text-xl opacity-90 font-semibold leading-relaxed line-clamp-3">
+                      {product.description}
+                    </p>
+                    <div className="mt-6 flex items-center gap-3 text-white font-bold text-lg">
+                      Saznaj više
+                      <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-3" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          {/* Smaller Cards Below – 2 columns */}
+          <div className="grid grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {regular.map((product, i) => (
+              <Link href="/proizvodi" key={product.id} className="block group">
+                <Card
+                  className="overflow-hidden rounded-2xl border border-border/50 bg-card/90 backdrop-blur
+                             h-full flex flex-col shadow-lg hover:shadow-2xl hover:border-primary/40
+                             transition-all duration-700 hover:-translate-y-2"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 100}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-contain transition-transform duration-1000 group-hover:scale-110"
+                      sizes="50vw"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                  </div>
+
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                      {product.description}
+                    </p>
+                    <div className="mt-6 flex items-center gap-2 text-primary font-semibold">
+                      Saznaj više
+                      <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import { Building2, Music, Clock, Hotel, Theater, Church, LucideIcon } from "luc
 export type CategoryKey =
     | "Projekti"
     | "Ostali projekti"
-    | "Oprema za club-ove"
+    | "Klubovi"
     | "Hoteli"
     | "Kazališta"
     | "Sakralni objekti";
@@ -51,7 +51,7 @@ export const referencesData: Record<CategoryKey, string[]> = {
         "Auto kuća CITROEN - Split",
         "Robna kuća JOLLY - Šibenik",
     ],
-    "Oprema za club-ove": [
+    "Klubovi": [
         // SPLITSKA REGIJA
         "Disco club \"SHAKESPEARE\" Split",
         "Disco club \"PALLADIUM\" Split",
@@ -175,7 +175,7 @@ export const referencesData: Record<CategoryKey, string[]> = {
 export const categoryIcons: Record<CategoryKey, LucideIcon> = {
     Projekti: Building2,
     "Ostali projekti": Clock,
-    "Oprema za club-ove": Music,
+    "Klubovi": Music,
     Hoteli: Hotel,
     Kazališta: Theater,
     "Sakralni objekti": Church,
