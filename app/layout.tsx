@@ -12,7 +12,7 @@ const montSerrat= Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Dicroic d.o.o.",
+  title: "Dicroic d.o.o. Audio, video i multimedia rješenja",
   description: "Dicroic d.o.o. SPLIT, TVRTKA ZA PROJEKTIRANJE, MONTAŽU I ODRŽAVANJE U PODRUČJU ELEKTROTEHNIKE",
   keywords: [
     "Dicroic",
@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="hr">
       <body
         className={`${montSerrat.variable} antialiased`}
       >

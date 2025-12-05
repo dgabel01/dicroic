@@ -52,7 +52,7 @@ const LogoSlider = () => {
             }
           `}</style>
 
-          <div className="space-y-10 py-10">
+          <div className="space-y-10 md:space-y-20 py-10">
             {/* ROW 1 */}
             <div className="overflow-hidden">
               <div className="flex marquee gap-10 md:gap-16">

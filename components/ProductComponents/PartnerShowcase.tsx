@@ -76,7 +76,7 @@ export default function FullPartnersShowcase() {
           ))}
         </div>
 
-        <div className="space-y-8 max-w-5xl mx-auto">
+        <div className="space-y-8 max-w-5xl mx-auto" data-aos="fade-down" data-aos-duration="2000">
           {Object.entries(brandCategories).map(([category, brands]) => {
             const isOpen = openSection === category;
 
