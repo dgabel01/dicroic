@@ -58,7 +58,7 @@ const cardsData: readonly CardType[] = [
     icon: CubeIcon,
     title: "PROIZVODI",
     items: [
-      "L-Acoustics • Meyer Sound",
+      "L-Acoustics",
       "Robotic kamere",
        "LED zidovi",
       "Digitalne miks pultove",
@@ -95,7 +95,7 @@ function CardComponent({ card, index }: { card: CardType; index: number }) {
           {"text" in card ? (
             <p className="text-muted-foreground text-md  leading-relaxed">{card.text}</p>
           ) : (
-            <ul className="space-y-2.5 text-muted-foreground text-sm sm:text-base">
+            <ul className="space-y-2.5 text-muted-foreground text-md">
               {card.items?.map((item: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2.5">
                   <span className="text-primary">•</span>
@@ -128,7 +128,7 @@ export default function AboutCTA() {
         <div className="text-center mb-16 lg:mb-20" data-aos="fade-up" data-aos-duration="2000">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
-              DICROIC d.o.o.
+              O nama
             </span>
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed italic">

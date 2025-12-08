@@ -35,7 +35,7 @@ export default function ContactHero() {
         <div className="text-center mb-20" data-aos="fade-up">
           <h1 className="text-5xl md:text-6xl font-black tracking-tight">
             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
-              Kontaktirajte nas
+              Naši kontakti
             </span>
           </h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">

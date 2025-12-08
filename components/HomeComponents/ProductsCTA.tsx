@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import Autoplay, { AutoplayType } from "embla-carousel-autoplay";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useState, useCallback, useEffect } from "react";
 import type { EmblaCarouselType } from "embla-carousel";
@@ -43,17 +43,28 @@ const products = [
   },
 ];
 
-export default function ProductsCTA() {
-  // We no longer need to separate featured and regular products for the desktop layout,
-  // but we keep them here if the mobile/carousel logic still relies on 'products'.
-  // const featured = products.filter(p => p.featured);
-  // const regular = products.filter(p => !p.featured);
+// 2. Define the Embla type including the Autoplay plugin
+type EmblaApiWithAutoplay = EmblaCarouselType & {
+  plugins: () => {
+    autoplay?: AutoplayType;
+  };
+};
 
-  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
+export default function ProductsCTA() {
+  // Use the new custom type for the Embla state
+  const [embla, setEmbla] = useState<EmblaApiWithAutoplay | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const scrollPrev = useCallback(() => embla?.scrollPrev(), [embla]);
-  const scrollNext = useCallback(() => embla?.scrollNext(), [embla]);
+  // Refactored callbacks to safely access plugins without 'any'
+  const scrollPrev = useCallback(() => {
+    embla?.scrollPrev();
+    embla?.plugins().autoplay?.reset();
+  }, [embla]);
+
+  const scrollNext = useCallback(() => {
+    embla?.scrollNext();
+    embla?.plugins().autoplay?.reset();
+  }, [embla]);
 
   const onSelect = useCallback(() => {
     if (!embla) return;
@@ -88,12 +99,13 @@ export default function ProductsCTA() {
         </div>
 
 
-        {/* Mobile: Single Carousel for All Products (No Change) */}
+        {/* Mobile: Single Carousel for All Products */}
         <div className="lg:hidden">
           <Carousel
             opts={{ loop: true }}
             plugins={[Autoplay({ delay: 5000 })]}
-            setApi={(api) => setEmbla(api ?? null)}
+            // Cast the API type here to satisfy the Autoplay plugin
+            setApi={(api) => setEmbla(api as EmblaApiWithAutoplay ?? null)}
             className="w-full"
           >
             <CarouselContent>
@@ -167,7 +179,7 @@ export default function ProductsCTA() {
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-contain transition-transform duration-1000 group-hover:scale-110"
+                    className="object-contain transition-transform duration-1000 group-hover:scale-110 p-4"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                     <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
