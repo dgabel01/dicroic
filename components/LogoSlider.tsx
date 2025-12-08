@@ -29,6 +29,9 @@ const LogoSlider = () => {
 
   return (
     <section className="pb-4 my-16" data-aos="fade-up">
+       <p className="text-center text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-16 italic">
+        <q>Partneri i brendovi s kojima surađujemo više od 30 godina</q>
+      </p>
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="overflow-hidden">
           <style jsx>{`
@@ -102,10 +105,6 @@ const LogoSlider = () => {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-40 bg-linear-to-l from-card to-transparent z-10" />
         </div>
       </div>
-
-      <p className="text-center font-bold text-xl text-muted-foreground mt-8 italic">
-        <q>Partneri i brendovi s kojima surađujemo više od 30 godina</q>
-      </p>
     </section>
   );
 };

@@ -49,7 +49,7 @@ export default function FullPartnersShowcase() {
               Naši Partneri
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed">
             Više od 30 godina ekskluzivni zastupnici vodećih svjetskih proizvođača profesionalne opreme.
           </p>
           <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />

@@ -95,7 +95,7 @@ export default function ProjectsHero() {
                             Naši projekti
                         </span>
                     </h2>
-                    <p className="mx-auto max-w-2xl text-lg text-zinc-600 sm:text-xl">
+                    <p className="mx-auto text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl leading-relaxed">
                         Pregledajte najzahtjevnije audio-video i multimedijalne sustave koje smo
                         realizirali diljem regije.
                     </p>

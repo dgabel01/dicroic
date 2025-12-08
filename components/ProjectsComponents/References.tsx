@@ -59,11 +59,11 @@ export default function References() {
             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
               Reference
             </span>
-            <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl leading-relaxed mx-auto">
             Više od 30 godina iskustva u najzahtjevnijim audio-video projektima u Hrvatskoj i regiji
           </p>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
         {/* Dropdown Selector */}

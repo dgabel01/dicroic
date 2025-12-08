@@ -163,7 +163,7 @@ const ProductCarousel = () => {
   return (
     <div className="block lg:hidden"> {/* Visible only on small/medium screens */}
       {/* 3. Pass setApi to the Carousel component */}
-      <Carousel opts={{ loop: true }} setApi={setApi} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+      <Carousel opts={{ loop: true }} setApi={setApi} plugins={[Autoplay({ delay: 5000 })]} className="w-full">
         <CarouselContent className="-ml-4">
           {products.map((product, i) => (
             // Ensure ProductCard receives the correct, typed props
@@ -199,7 +199,7 @@ export default function ProductShowcase() {
               Naša Premium Ponuda
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed">
             Ekskluzivni zastupnici i distributeri vodećih svjetskih brendova profesionalne audio, video i akustične opreme.
           </p>
           <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />

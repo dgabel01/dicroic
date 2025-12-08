@@ -4,22 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import {
   BuildingOffice2Icon,
   FolderOpenIcon,
   CubeIcon,
   ArrowRightIcon,
 } from "@heroicons/react/24/outline";
-
-import { useState, useCallback, useEffect } from "react";
-import type { EmblaCarouselType } from "embla-carousel";
 
 /* ---------- FIXED TYPES ---------- */
 
@@ -48,7 +37,7 @@ const cardsData: readonly CardType[] = [
   {
     icon: BuildingOffice2Icon,
     title: "O NAMA",
-    text: "Više od 30 godina surađujemo s vodećim projektantima na najzahtjevnijim tehnološkim sustavima za kazališta, kongresne centre, hotele i sakralne objekte.",
+    text: "Više od 30 godina surađujemo s vodećim projektantima na najzahtjevnijim tehnološkim sustavima poput kazališta, kongresnih centara, klubova, hotela i sakralnih objekata.",
     href: "/o-nama",
     linkText: "Više o nama",
   },
@@ -70,7 +59,8 @@ const cardsData: readonly CardType[] = [
     title: "PROIZVODI",
     items: [
       "L-Acoustics • Meyer Sound",
-      "Robotic kamere • LED zidovi",
+      "Robotic kamere",
+       "LED zidovi",
       "Digitalne miks pultove",
       "Akustične panele",
       "Optičke mreže i AVoIP",
@@ -94,7 +84,7 @@ function CardComponent({ card, index }: { card: CardType; index: number }) {
       <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
       <div className="relative p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
-        <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center gap-3 mb-8">
           <div className="p-2.5 rounded-lg bg-linear-to-br from-red-600 to-red-700 shadow-md shrink-0">
             <card.icon className="w-5 h-5 text-white" />
           </div>
@@ -103,12 +93,12 @@ function CardComponent({ card, index }: { card: CardType; index: number }) {
 
         <div className="flex-1 mb-6">
           {"text" in card ? (
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{card.text}</p>
+            <p className="text-muted-foreground text-md  leading-relaxed">{card.text}</p>
           ) : (
             <ul className="space-y-2.5 text-muted-foreground text-sm sm:text-base">
               {card.items?.map((item: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2.5">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-primary">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -130,23 +120,6 @@ function CardComponent({ card, index }: { card: CardType; index: number }) {
 /* ---------- MAIN COMPONENT ---------- */
 
 export default function AboutCTA() {
-  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => embla?.scrollPrev(), [embla]);
-  const scrollNext = useCallback(() => embla?.scrollNext(), [embla]);
-
-  const onSelect = useCallback(() => {
-    if (!embla) return;
-    setSelectedIndex(embla.selectedScrollSnap());
-  }, [embla]);
-
-  useEffect(() => {
-    if (!embla) return;
-    onSelect();
-    embla.on("select", onSelect);
-  }, [embla, onSelect]);
-
   return (
     <section className="py-12 lg:py-16">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -165,48 +138,13 @@ export default function AboutCTA() {
           <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="block md:hidden">
-          <Carousel
-            opts={{ loop: true }}
-            plugins={[
-              Autoplay({
-                delay: 5500,
-                stopOnInteraction: true,
-              }),
-            ]}
-            setApi={(api) => setEmbla(api ?? null)}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {cardsData.map((card, i) => (
-                <CarouselItem key={i} className="pl-4 basis-[88%]">
-                  <CardComponent card={card} index={i} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex items-center justify-center gap-6 mt-6 pb-2">
-              <CarouselPrevious
-                className="left-2 lg:left-0 size-8 md:size-9 lg:size-10 static translate-y-0"
-                onClick={scrollPrev}
-              />
-              <span className="text-md font-medium text-muted-foreground">
-                {selectedIndex + 1} / {cardsData.length}
-              </span>
-              <CarouselNext
-                className="right-2 lg:right-0 size-8 md:size-9 lg:size-10 static translate-y-0"
-                onClick={scrollNext}
-              />
-            </div>
-          </Carousel>
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 lg:gap-10">
+        {/* Mobile & Desktop – same 3 cards, stacked on mobile, grid on ≥md */}
+        <div className="grid gap-8 md:grid-cols-3 lg:gap-10">
           {cardsData.map((card, i) => (
             <CardComponent key={i} card={card} index={i} />
           ))}
         </div>
+
       </div>
     </section>
   );

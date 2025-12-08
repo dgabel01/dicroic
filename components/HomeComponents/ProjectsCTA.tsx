@@ -44,7 +44,7 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
 
 const projects = [
   {
-    title: "Međugorje",
+    title: "Međugorje - Crkva Sv. Jakova",
     description: [
       "Sustav ozvučenja prostora vanjskog oltara",
       "Novi sustav ozvučenja Crkve Sv. Jakova u Međugorju",
@@ -79,23 +79,14 @@ export default function ProjectsSection() {
               Naši Projekti
             </span>
           </h2>
-          <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="mt-6 text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed">
             Preko 30 godina realiziramo najzahtjevnije audio-video i multimedijalne sustave u regiji.
           </p>
-        </div>
-
-        <div className="flex justify-center mb-16" data-aos="fade-up" data-aos-delay="100">
-          <Link
-            href="/projekti"
-            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            Svi projekti
-            <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-          </Link>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
         {/* Projects */}
-        <div className="grid gap-20 lg:gap-28 max-w-5xl mx-auto">          {projects.map((project, index) => (
+        <div className="grid gap-20 lg:gap-28 max-w-3xl mx-auto">          {projects.map((project, index) => (
           <Card
             key={index}
             className="group overflow-hidden rounded-3xl border border-border/50 bg-card/95 backdrop-blur
@@ -119,15 +110,6 @@ export default function ProjectsSection() {
                   {project.title}
                 </h3>
 
-                <ul className="space-y-3 text-lg text-muted-foreground mb-8">
-                  {project.description.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <span className="text-primary ">▸</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
                 {/* FIXED: Fully clickable button */}
                 <Button asChild size="lg" className="w-full sm:w-auto">
                   <Link href="/projekti" className="flex items-center justify-center gap-3 text-lg font-semibold">
@@ -139,6 +121,15 @@ export default function ProjectsSection() {
             </div>
           </Card>
         ))}
+        </div>
+        <div className="flex justify-center my-16" data-aos="fade-up" data-aos-delay="100">
+          <Link
+            href="/projekti"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            Svi projekti
+            <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+          </Link>
         </div>
       </div>
     </section>

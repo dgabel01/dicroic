@@ -1,4 +1,4 @@
-import Hero from "@/components/HomeComponents/Hero";
+import HomeHero from "@/components/HomeComponents/HomeHero";
 import AboutCTA from "@/components/HomeComponents/AboutCTA";
 import ProductsCTA from "@/components/HomeComponents/ProductsCTA";
 import LogoSlider from "@/components/LogoSlider";
@@ -9,7 +9,7 @@ import ContactCTA from "@/components/ContactCTA";
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <HomeHero/>
       <AboutCTA />
       <ProductsCTA />
       <LogoSlider/>

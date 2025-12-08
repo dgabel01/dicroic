@@ -44,8 +44,10 @@ const products = [
 ];
 
 export default function ProductsCTA() {
-  const featured = products.filter(p => p.featured);
-  const regular = products.filter(p => !p.featured);
+  // We no longer need to separate featured and regular products for the desktop layout,
+  // but we keep them here if the mobile/carousel logic still relies on 'products'.
+  // const featured = products.filter(p => p.featured);
+  // const regular = products.filter(p => !p.featured);
 
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -62,6 +64,10 @@ export default function ProductsCTA() {
     if (!embla) return;
     onSelect();
     embla.on("select", onSelect);
+    // Cleanup function
+    return () => {
+        embla.off("select", onSelect);
+    };
   }, [embla, onSelect]);
 
   return (
@@ -72,26 +78,17 @@ export default function ProductsCTA() {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
-              Dio naše premium ponude
+              Dio naše ponude
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed ">
             Partneri smo s vodećim svjetskim proizvođačima profesionalne audio, video i multimedijalne opreme.
           </p>
+          <div className="h-1 w-20 bg-red-600 rounded-full mx-auto mt-6" />
         </div>
 
-        {/* All Products Button */}
-        <div className="flex justify-center mb-16" data-aos="fade-up">
-          <Link
-            href="/proizvodi"
-            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            Svi proizvodi
-            <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-          </Link>
-        </div>
 
-        {/* Mobile: Single Carousel for All Products */}
+        {/* Mobile: Single Carousel for All Products (No Change) */}
         <div className="lg:hidden">
           <Carousel
             opts={{ loop: true }}
@@ -153,50 +150,10 @@ export default function ProductsCTA() {
           </Carousel>
         </div>
 
-        {/* Desktop: Original Layout */}
+        {/* Desktop: Unified Layout with Equal Sized Cards */}
         <div className="hidden lg:block">
-          {/* Featured Large Cards – 2 columns */}
-          <div className="grid grid-cols-2 gap-8 mb-12">
-            {featured.map((product, i) => (
-              <Link href="/proizvodi" key={product.id} className="block group">
-                <Card
-                  className="overflow-hidden rounded-3xl border border-border/60 bg-card/95 backdrop-blur
-                             shadow-2xl hover:shadow-3xl hover:border-primary/40
-                             transition-all duration-800 ease-out hover:-translate-y-3 p-0"
-                  data-aos="fade-up"
-                  data-aos-delay={i * 150}
-                >
-                  <div className="relative h-96 overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-cover transition-transform duration-1200 group-hover:scale-110"
-                      sizes="50vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
-                    <h3 className="text-4xl font-black mb-4">
-                      {product.title}
-                    </h3>
-                    <p className="text-xl opacity-90 font-semibold leading-relaxed line-clamp-3">
-                      {product.description}
-                    </p>
-                    <div className="mt-6 flex items-center gap-3 text-white font-bold text-lg">
-                      Saznaj više
-                      <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-3" />
-                    </div>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          {/* Smaller Cards Below – 2 columns */}
-          <div className="grid grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {regular.map((product, i) => (
+          <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {products.map((product, i) => (
               <Link href="/proizvodi" key={product.id} className="block group">
                 <Card
                   className="overflow-hidden rounded-2xl border border-border/50 bg-card/90 backdrop-blur
@@ -205,14 +162,14 @@ export default function ProductsCTA() {
                   data-aos="fade-up"
                   data-aos-delay={i * 100}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative aspect-4/3 overflow-hidden"> 
                     <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-contain transition-transform duration-1000 group-hover:scale-110"
-                      sizes="50vw"
-                    />
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-contain transition-transform duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                     <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                   </div>
 
@@ -232,6 +189,16 @@ export default function ProductsCTA() {
               </Link>
             ))}
           </div>
+        </div>
+        {/* All Products Button */}
+        <div className="flex justify-center my-16" data-aos="fade-up">
+          <Link
+            href="/proizvodi"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            Svi proizvodi
+            <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+          </Link>
         </div>
       </div>
     </section>
