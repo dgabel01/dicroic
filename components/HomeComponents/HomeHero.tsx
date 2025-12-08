@@ -1,35 +1,26 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import heroImage from "@/public/images/dicroic_hero.jpg";
-// Assuming this path resolves to your SVG file
+import heroImage from "@/public/images/numbers_background.jpg";
 import mobileBackground from "@/public/images/topography.svg";
 
-
-// -------------------------------------------------------------------
-// Mobile Hero Component: Uses SVG Background (Topography)
-// -------------------------------------------------------------------
 const MobileHeroGradient = () => (
   <div className="relative h-screen max-h-[800px] min-h-[600px] lg:hidden overflow-hidde mb-24">
-    
+
     {/* 1. SVG Background Image */}
     <Image
-        src={mobileBackground}
-        alt="Topography Pattern Background"
-        fill
-        // Use object-cover to ensure the pattern fills the height/width
-        // Set low opacity so it's subtle and white text remains readable
-        className="object-cover opacity-5 text-teal-300" 
-        priority
-        sizes="100vw"
+      src={mobileBackground}
+      alt="Topography Pattern Background"
+      fill
+      className="object-cover opacity-5 text-teal-300"
+      priority
+      sizes="100vw"
     />
 
-    {/* 2. Content Container: Added h-full and flex-1 to inner elements for proper centering */}
-    {/* The z-10 ensures content is *above* the SVG background */}
+    {/* 2. Content Container*/}
     <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
       <div className="max-w-2xl space-y-7">
         <h1 className="text-5xl sm:text-6xl font-black tracking-tight">
-          {/* Text is now dark to contrast with the light/white background */}
           <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
             Dicroic d.o.o
           </span>
@@ -72,9 +63,7 @@ const MobileHeroGradient = () => (
     </div>
   </div>
 );
-// -------------------------------------------------------------------
-// Main HomeHero Component
-// -------------------------------------------------------------------
+
 const HomeHero = () => {
   return (
     <section className="relative w-full" data-aos="fade-in" data-aos-duration="1600">
@@ -103,7 +92,7 @@ const HomeHero = () => {
               Dicroic
             </h1>
             <p className="text-4xl lg:text-5xl font-bold drop-shadow-xl italic">
-              Profesionalna rješenja od 1992.
+              Profesionalna rješenja od 1993.
             </p>
             <p className="text-2xl lg:text-3xl font-bold leading-relaxed drop-shadow-lg max-w-4xl mx-auto">
               Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
@@ -113,7 +102,7 @@ const HomeHero = () => {
             <div className="flex flex-col items-center gap-6 pt-8">
               <Link
                 href="/kontakt"
-                className="bg-primary hover:bg-primary/90 px-16 lg:px-20 py-5 rounded-lg font-bold text-2xl transition hover:scale-105 shadow-2xl"
+                className="bg-white/20 hover:bg-white/30 border-2 border-white/50 px-16 lg:px-20 py-5 rounded-lg font-bold text-2xl transition hover:scale-105 shadow-2xl"
               >
                 Kontaktirajte nas
               </Link>
