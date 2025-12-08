@@ -14,20 +14,27 @@ const Counter = ({ end, suffix = "" }: { end: number; suffix?: string }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Don't unobserve — keep it in case user scrolls back up
         }
       },
-      // Keep your current optimized Intersection Observer settings
       { threshold: 0.3, rootMargin: "0px 0px -50px 0px" }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    // Capture the current node here
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      // Use the captured node in the cleanup
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      // Also cleanup the observer itself
+      observer.disconnect();
     };
+    // The dependency array remains empty ([]) because the effect only needs to run once.
   }, []);
 
   useEffect(() => {
@@ -61,14 +68,14 @@ const Counter = ({ end, suffix = "" }: { end: number; suffix?: string }) => {
 export default function Numbers() {
   return (
     // 1. INCREASED VERTICAL PADDING: py-24 md:py-36 lg:py-48
-    <section className="relative w-full py-24 md:py-36 lg:py-48 overflow-hidden">
+    <section className="relative w-full py-24 md:py-36 lg:py-48 overflow-hidden" data-aos="fade-in" data-aos-duration="2000">
       {/* Background Image – now properly behind content */}
       <div className="absolute inset-0">
         <Image
           src={backgroundImage}
           alt="Dicroic u brojkama"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           quality={90}
         />
@@ -82,7 +89,7 @@ export default function Numbers() {
           {/* 2. INCREASED HEADER MARGIN: mb-24 md:mb-32 lg:mb-40 */}
           <div className="text-center mb-24 md:mb-32 lg:mb-40" data-aos="fade-up">
             <h2 className="text-5xl xs:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight">
-              <span className="bg-linear-to-l from-white via-gray-100 to-red-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-l from-red-200 via-red-300 to-red-500 bg-clip-text text-transparent">
                 Dicroic u brojkama
               </span>
             </h2>
@@ -92,7 +99,7 @@ export default function Numbers() {
           {/* Numbers Grid */}
           {/* 3. INCREASED GRID GAP ON LARGE SCREENS: xl:gap-36 */}
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 lg:gap-20 xl:gap-36 max-w-7xl mx-auto">
-            
+
             {/* --- Example Counter Block --- */}
             <div className="text-center" data-aos="fade-up" data-aos-delay="100">
               {/* 4. REDUCED NUMBER FONT SIZE ON XL: xl:text-7xl */}
