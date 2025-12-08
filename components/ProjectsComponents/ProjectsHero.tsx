@@ -112,7 +112,7 @@ export default function ProjectsHero() {
                     plugins={[
                         Autoplay({
                             delay: 5000,
-                            stopOnInteraction: true,
+                            stopOnInteraction: false,
                         }),
                     ]}
                     className="mx-auto w-full max-w-7xl"

@@ -163,7 +163,7 @@ const ProductCarousel = () => {
   return (
     <div className="block lg:hidden"> {/* Visible only on small/medium screens */}
       {/* 3. Pass setApi to the Carousel component */}
-      <Carousel opts={{ loop: true }} setApi={setApi} plugins={[Autoplay({ delay: 5000 })]} className="w-full">
+      <Carousel opts={{ loop: true }} setApi={setApi} plugins={[Autoplay({ delay: 5000, stopOnInteraction:false })]} className="w-full">
         <CarouselContent className="-ml-4">
           {products.map((product, i) => (
             // Ensure ProductCard receives the correct, typed props
