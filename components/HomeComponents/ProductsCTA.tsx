@@ -123,10 +123,10 @@ export default function ProductsCTA() {
                           src={product.image}
                           alt={product.title}
                           fill
-                          className="object-contain transition-transform duration-1000 group-hover:scale-110"
+                          className="object-contain object-top transition-transform duration-1000 group-hover:scale-110"
                           sizes="100vw"
                         />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent p-0"/>
                       </div>
 
                       <div className="p-6 flex-1 flex flex-col justify-between">
@@ -179,10 +179,10 @@ export default function ProductsCTA() {
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-contain transition-transform duration-1000 group-hover:scale-110 p-4"
+                    className="object-contain objext-top transition-transform duration-1000 group-hover:scale-110 p-4"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col justify-between">

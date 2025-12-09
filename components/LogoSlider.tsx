@@ -29,7 +29,7 @@ const LogoSlider = () => {
 
   return (
     <section className="pb-4 my-16" data-aos="fade-up">
-       <p className="text-center text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-16 italic">
+       <p className="text-center text-xl md:text-xl lg:text-3xl font-black text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-16 italic">
         <q>Partneri i brendovi s kojima surađujemo više od 30 godina</q>
       </p>
       <div className="relative max-w-7xl mx-auto px-6">

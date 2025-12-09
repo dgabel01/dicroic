@@ -1,131 +1,128 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import heroImage from "@/public/images/numbers_background.jpg";
 import mobileBackground from "@/public/images/topography.svg";
 
-const MobileHeroGradient = () => (
-  <div className="relative h-screen max-h-[800px] min-h-[600px] lg:hidden overflow-hidde mb-24">
-
-    {/* 1. SVG Background Image */}
-    <Image
-      src={mobileBackground}
-      alt="Topography Pattern Background"
-      fill
-      className="object-cover opacity-5 text-teal-300"
-      priority
-      sizes="100vw"
-    />
-
-    {/* 2. Content Container*/}
-    <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-      <div className="max-w-2xl space-y-7">
-        <h1 className="text-5xl sm:text-6xl font-black tracking-tight">
-          <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
-            Dicroic d.o.o
-          </span>
-        </h1>
-
-        <p className="text-2xl font-medium italic text-gray-800">
-          Profesionalna rješenja od{" "}
-          <span className="font-bold text-red-600">1993.</span>
-        </p>
-
-        <p className="text-lg sm:text-xl lg:text-2xl font-bold text-muted-foreground max-w-5xl mx-auto leading-relaxed">
-          Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
-          pro-video i broadcast sustavima.
-        </p>
-
-        <div className="flex flex-col gap-4 pt-6">
-          <Link
-            href="/kontakt"
-            className="bg-primary w-64 mx-auto text-white px-12 py-4.5 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            Kontaktirajte nas
-          </Link>
-
-          <div className="flex flex-col w-44  text-nowrap mx-auto sm:flex-row gap-4 justify-center">
-            <Link
-              href="/o-nama"
-              className="border-2  border-gray-300 hover:border-red-600 text-gray-800 hover:text-red-600 bg-white/90 hover:bg-white px-9 py-3.5 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105"
-            >
-              Više o nama
-            </Link>
-            <Link
-              href="/projekti"
-              className="border-2 w-44 mx-auto text-nowrap border-gray-300 hover:border-red-600 text-gray-800 hover:text-red-600 bg-white/90 hover:bg-white px-9 py-3.5 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105"
-            >
-              Naši projekti
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const HomeHero = () => {
+export default function HomeHero() {
   return (
-    <section className="relative w-full" data-aos="fade-in" data-aos-duration="1600">
+   <section className="relative w-full" data-aos="fade-in" data-aos-duration="1600">
+     {/* ==================== MOBILE & TABLET (< lg) ==================== */}
+     <div className="relative h-screen max-h-[800px] min-h-[600px] md:hidden overflow-hidden">
+       {/* SVG Topography Background */}
+       <Image
+         src={mobileBackground}
+         alt="Topography Pattern"
+         fill
+         className="object-cover opacity-5"
+         priority
+         sizes="100vw"
+       />
 
-      {/* Mobile Version: Uses the SVG background Hero */}
-      <MobileHeroGradient />
+       {/* Content */}
+       <div className="relative z-10  h-full flex flex-col items-center justify-center px-6 text-center">
+         <div className="max-w-2xl space-y-7">
+           <h1 className="text-5xl sm:text-6xl font-black tracking-tight">
+             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+               Dicroic d.o.o
+             </span>
+           </h1>
 
-      {/* Desktop & Larger Screens */}
-      <div className="relative hidden lg:block h-screen max-h-[900px] min-h-[700px]">
-        <Image
-          src={heroImage}
-          alt="Dicroic Hero"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
+           <p className="text-2xl font-medium italic text-gray-800">
+             Profesionalna rješenja od{" "}
+             <span className="font-bold text-red-600">1993.</span>
+           </p>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-primary/60 via-black/50 to-primary/60" />
+           <p className="text-lg sm:text-xl font-bold text-muted-foreground leading-relaxed">
+             Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
+             pro-video i broadcast sustavima.
+           </p>
 
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center  px-8 text-center text-white">
-          <div className="max-w-6xl space-y-8">
-            <h1 className="text-7xl lg:text-8xl xl:text-9xl font-extrabold tracking-tight drop-shadow-2xl">
-              Dicroic
-            </h1>
-            <p className="text-4xl lg:text-5xl font-bold drop-shadow-xl italic">
-              Profesionalna rješenja od 1993.
-            </p>
-            <p className="text-2xl lg:text-3xl font-bold leading-relaxed drop-shadow-lg max-w-4xl mx-auto">
-              Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
-              pro-video i broadcast sustavima.
-            </p>
+           <div className="flex flex-col gap-4 pt-6">
+             <Link
+               href="/kontakt"
+               className="mx-auto w-64 rounded-xl bg-primary px-12 py-4.5 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+             >
+               Kontaktirajte nas
+             </Link>
 
-            <div className="flex flex-col items-center gap-6 pt-8">
-              <Link
-                href="/kontakt"
-                className="bg-white/20 hover:bg-white/30 border-2 border-white/50 px-16 lg:px-20 py-5 rounded-lg font-bold text-2xl transition hover:scale-105 shadow-2xl"
-              >
-                Kontaktirajte nas
-              </Link>
-              <div className="flex flex-col lg:flex-row gap-6">
-                <Link
-                  href="/o-nama"
-                  className="bg-white/20 hover:bg-white/30 border-2 border-white/50 px-12 py-4 rounded-lg font-bold text-xl transition hover:scale-105 backdrop-blur-sm"
-                >
-                  Više o nama
-                </Link>
-                <Link
-                  href="/projekti"
-                  className="bg-white/20 hover:bg-white/30 border-2 border-white/50 px-12 py-4 rounded-lg font-bold text-xl transition hover:scale-105 backdrop-blur-sm"
-                >
-                  Naši projekti
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+             <div className="mx-auto flex flex-col gap-4 sm:flex-row sm:justify-center">
+               <Link
+                 href="/o-nama"
+                 className="rounded-xl border-2 border-gray-300 bg-white/90 px-9 py-3.5 font-semibold text-gray-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-red-600 hover:bg-white hover:text-red-600"
+               >
+                 Više o nama
+               </Link>
+               <Link
+                 href="/projekti"
+                 className="rounded-xl border-2 border-gray-300 bg-white/90 px-9 py-3.5 font-semibold text-gray-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-red-600 hover:bg-white hover:text-red-600"
+               >
+                 Naši projekti
+               </Link>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
 
-export default HomeHero;
+     {/* ==================== LAPTOP & DESKTOP (lg+) ==================== */}
+     <div className="relative hidden md:block h-screen max-h-[900px] min-h-[700px]">
+       {/* Photo Background */}
+       <Image
+         src={heroImage}
+         alt="Dicroic Hero"
+         fill
+         className="object-cover object-center"
+         priority
+         sizes="100vw"
+       />
+
+       {/* Dark Gradient Overlay */}
+       <div className="absolute inset-0 bg-linear-to-br from-primary/60 via-black/50 to-primary/60" />
+
+       {/* Content */}
+       <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center text-white">
+         <div className="max-w-6xl space-y-8">
+           <h1 className="text-7xl lg:text-8xl xl:text-9xl font-extrabold tracking-tight drop-shadow-2xl">
+             Dicroic
+           </h1>
+
+           <p className="text-4xl lg:text-5xl font-bold italic drop-shadow-xl">
+             Profesionalna rješenja od 1993.
+           </p>
+
+           <p className="mx-auto max-w-4xl text-2xl lg:text-3xl font-bold leading-relaxed drop-shadow-lg">
+             Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
+             pro-video i broadcast sustavima.
+           </p>
+
+           <div className="flex flex-col items-center gap-6 pt-8">
+             <Link
+               href="/kontakt"
+               className="rounded-lg border-2 border-white/50 bg-white/20 px-16 py-5 text-2xl font-bold shadow-2xl transition hover:scale-105 hover:bg-white/30 lg:px-20"
+             >
+               Kontaktirajte nas
+             </Link>
+
+             <div className="flex flex-col gap-6 lg:flex-row">
+               <Link
+                 href="/o-nama"
+                 className="rounded-lg border-2 border-white/50 bg-white/20 px-12 py-4 text-xl font-bold backdrop-blur-sm transition hover:scale-105 hover:bg-white/30"
+               >
+                 Više o nama
+               </Link>
+               <Link
+                 href="/projekti"
+                 className="rounded-lg border-2 border-white/50 bg-white/20 px-12 py-4 text-xl font-bold backdrop-blur-sm transition hover:scale-105 hover:bg-white/30"
+               >
+                 Naši projekti
+               </Link>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+ );
+}

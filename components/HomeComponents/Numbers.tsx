@@ -77,7 +77,6 @@ export default function Numbers() {
           fill
           className="object-cover object-center"
           priority
-          quality={90}
         />
         <div className="absolute inset-0 bg-black/65" />
       </div>
