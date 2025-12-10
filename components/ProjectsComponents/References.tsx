@@ -153,11 +153,11 @@ export default function References() {
         </div>
 
         {/* Desktop: Original Grid */}
-        <div className="hidden md:grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
+        <div className="hidden md:grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-aos="fade-up">
           {currentProjects.map((project, index) => (
             <div
               key={index}
-              className="group flex items-start gap-4 rounded-2xl border border-border/50 bg-card/95 backdrop-blur p-5 shadow-md hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-500"
+              className="group flex items-start gap-4 rounded-2xl border border-border/50 bg-card/95 backdrop-blur p-5 shadow-md hover:shadow-2xl hover:border-red-700 hover:-translate-y-2 transition-all duration-500"
             >
               <p className="text-md font-semibold leading-relaxed text-foreground/90 group-hover:text-foreground">
                 • {project}

@@ -122,7 +122,7 @@ export default function Navbar() {
                 <Link
                   href={href}
                   onClick={closeDrawer}
-                  className={`block w-full py-5 px-6 text-xl font-semibold rounded-xl transition-all duration-300 text-left
+                  className={`block w-full p-2.5 text-xl font-semibold rounded-xl transition-all duration-300 text-left
                     ${pathname === href
                       ? 'bg-primary text-white shadow-lg'
                       : 'hover:bg-primary/10 hover:text-primary active:bg-primary/20'

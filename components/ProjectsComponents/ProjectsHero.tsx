@@ -111,7 +111,7 @@ export default function ProjectsHero() {
                     opts={{ loop: true }}
                     plugins={[
                         Autoplay({
-                            delay: 5000,
+                            delay: 10000,
                             stopOnInteraction: false,
                         }),
                     ]}

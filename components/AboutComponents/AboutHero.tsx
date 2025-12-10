@@ -142,20 +142,20 @@ export default function AboutHero() {
                 <div
                   key={i}
                   className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur
-                             p-8 shadow-xl hover:shadow-2xl hover:border-primary/40
-                             transition-all duration-700 ease-out hover:-translate-y-3 hover:text-red-500"
+                             p-8 shadow-xl hover:shadow-2xl hover:border-red-600
+                             transition-all duration-700 ease-out hover:-translate-y-3"
                   data-aos="fade-up"
                 >
                   <div className="absolute inset-0 bg-linear-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:text-red-500" />
 
-                  <h3 className="relative text-2xl font-black mb-6 text-foreground">
+                  <h3 className="relative text-2xl font-black mb-6 text-foreground hover">
                     {service.title}
                   </h3>
 
                   {service.items.length > 0 && (
                     <ul className="space-y-3 text-muted-foreground text-base">
                       {service.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
+                        <li key={idx} className="flex items-start gap-3 font-semibold">
                           <span className="text-primary">•</span>
                           <span>{item}</span>
                         </li>
