@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import heroImage from "@/public/images/numbers_background.jpg";
-import mobileBackground from "@/public/images/topography.svg";
+import mobileBackground from "@/public/images/mobile_hero.jpg";
 
 export default function HomeHero() {
   return (
@@ -13,9 +13,9 @@ export default function HomeHero() {
        {/* SVG Topography Background */}
        <Image
          src={mobileBackground}
-         alt="Topography Pattern"
+         alt="Mobile hero"
          fill
-         className="object-cover opacity-5"
+         className="object-cover object-center brightness-45"
          priority
          sizes="100vw"
        />
@@ -24,17 +24,17 @@ export default function HomeHero() {
        <div className="relative z-10  h-full flex flex-col items-center justify-center px-6 text-center">
          <div className="max-w-2xl space-y-7">
            <h1 className="text-5xl sm:text-6xl font-black tracking-tight">
-             <span className="bg-linear-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+             <span className="text-white">
                Dicroic d.o.o
              </span>
            </h1>
 
-           <p className="text-2xl font-medium italic text-gray-800">
+           <p className="text-2xl font-black italic text-white">
              Profesionalna rješenja od{" "}
-             <span className="font-bold text-red-600">1993.</span>
+             <span className="font-black text-red-600">1993.</span>
            </p>
 
-           <p className="text-lg sm:text-xl font-bold text-muted-foreground leading-relaxed">
+           <p className="text-lg sm:text-xl font-black text-white leading-relaxed">
              Ekskluzivni zastupnik vodećih svjetskih brendova u pro-audio,
              pro-video i broadcast sustavima.
            </p>
